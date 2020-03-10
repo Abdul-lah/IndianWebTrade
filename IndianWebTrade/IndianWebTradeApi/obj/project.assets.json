@@ -11,6 +11,19 @@
         "runtime": {
           "bin/placeholder/DAL.dll": {}
         }
+      },
+      "INFASTRUCTURE/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "DAL": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/INFASTRUCTURE.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/INFASTRUCTURE.dll": {}
+        }
       }
     }
   },
@@ -19,11 +32,17 @@
       "type": "project",
       "path": "../DAL/DAL.csproj",
       "msbuildProject": "../DAL/DAL.csproj"
+    },
+    "INFASTRUCTURE/1.0.0": {
+      "type": "project",
+      "path": "../INFASTRUCTURE/INFASTRUCTURE.csproj",
+      "msbuildProject": "../INFASTRUCTURE/INFASTRUCTURE.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "DAL >= 1.0.0"
+      "DAL >= 1.0.0",
+      "INFASTRUCTURE >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -32,11 +51,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\MasterBranch\\IndianWebTrade\\INFASTRUCTURE\\INFASTRUCTURE.csproj",
-      "projectName": "INFASTRUCTURE",
-      "projectPath": "E:\\MasterBranch\\IndianWebTrade\\INFASTRUCTURE\\INFASTRUCTURE.csproj",
+      "projectUniqueName": "E:\\MasterBranch\\IndianWebTrade\\IndianWebTradeApi\\IndianWebTradeApi.csproj",
+      "projectName": "IndianWebTradeApi",
+      "projectPath": "E:\\MasterBranch\\IndianWebTrade\\IndianWebTradeApi\\IndianWebTradeApi.csproj",
       "packagesPath": "C:\\Users\\Abdullah\\.nuget\\packages\\",
-      "outputPath": "E:\\MasterBranch\\IndianWebTrade\\INFASTRUCTURE\\obj\\",
+      "outputPath": "E:\\MasterBranch\\IndianWebTrade\\IndianWebTradeApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Abdullah\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -54,6 +73,9 @@
           "projectReferences": {
             "E:\\MasterBranch\\IndianWebTrade\\DAL\\DAL.csproj": {
               "projectPath": "E:\\MasterBranch\\IndianWebTrade\\DAL\\DAL.csproj"
+            },
+            "E:\\MasterBranch\\IndianWebTrade\\INFASTRUCTURE\\INFASTRUCTURE.csproj": {
+              "projectPath": "E:\\MasterBranch\\IndianWebTrade\\INFASTRUCTURE\\INFASTRUCTURE.csproj"
             }
           }
         }
@@ -77,6 +99,9 @@
         "assetTargetFallback": true,
         "warn": true,
         "frameworkReferences": {
+          "Microsoft.AspNetCore.App": {
+            "privateAssets": "none"
+          },
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
