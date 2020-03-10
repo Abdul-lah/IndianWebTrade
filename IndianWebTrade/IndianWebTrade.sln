@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INFASTRUCTURE", "INFASTRUCT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndianWebTradeApi", "IndianWebTradeApi\IndianWebTradeApi.csproj", "{93958CD6-88D7-4312-B030-D81BBD404DEC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndanWebTradePortal", "IndanWebTradePortal\IndanWebTradePortal.csproj", "{17A3EC7E-2128-4D7A-9738-A8BAC43B54A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{93958CD6-88D7-4312-B030-D81BBD404DEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93958CD6-88D7-4312-B030-D81BBD404DEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93958CD6-88D7-4312-B030-D81BBD404DEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17A3EC7E-2128-4D7A-9738-A8BAC43B54A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17A3EC7E-2128-4D7A-9738-A8BAC43B54A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17A3EC7E-2128-4D7A-9738-A8BAC43B54A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17A3EC7E-2128-4D7A-9738-A8BAC43B54A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

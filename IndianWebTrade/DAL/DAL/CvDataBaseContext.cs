@@ -15,8 +15,9 @@ namespace DAL.DAL
         {
         }
 
-        public virtual DbSet<Employee> Employee { get; set; }
+        public virtual DbSet<TblItem> TblItem { get; set; }
         public virtual DbSet<TblMsg> TblMsg { get; set; }
+        public virtual DbSet<TblSeller> TblSeller { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -29,21 +30,19 @@ namespace DAL.DAL
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Employee>(entity =>
+            modelBuilder.Entity<TblItem>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.ItemId);
 
-                entity.ToTable("employee");
+                entity.ToTable("tbl_Item");
 
-                entity.Property(e => e.Email)
-                    .HasColumnName("email")
-                    .HasMaxLength(30)
-                    .IsUnicode(false);
+                entity.Property(e => e.ImageUrl)
+                    .HasColumnName("Image_Url")
+                    .HasMaxLength(220);
 
-                entity.Property(e => e.Name)
-                    .HasColumnName("name")
-                    .HasMaxLength(20)
-                    .IsUnicode(false);
+                entity.Property(e => e.ItemName)
+                    .HasColumnName("Item_Name")
+                    .HasMaxLength(20);
             });
 
             modelBuilder.Entity<TblMsg>(entity =>
@@ -67,6 +66,29 @@ namespace DAL.DAL
                 entity.Property(e => e.PhoneNo)
                     .IsRequired()
                     .HasMaxLength(20);
+            });
+
+            modelBuilder.Entity<TblSeller>(entity =>
+            {
+                entity.HasKey(e => e.SellerId);
+
+                entity.ToTable("tbl_Seller");
+
+                entity.Property(e => e.SellerAddress)
+                    .HasColumnName("Seller_Address")
+                    .HasMaxLength(140);
+
+                entity.Property(e => e.SellerEmail)
+                    .HasColumnName("Seller_Email")
+                    .HasMaxLength(30);
+
+                entity.Property(e => e.SellerImageUrl)
+                    .HasColumnName("Seller_ImageUrl")
+                    .HasMaxLength(240);
+
+                entity.Property(e => e.SellerName)
+                    .HasColumnName("Seller_Name")
+                    .HasMaxLength(30);
             });
 
             OnModelCreatingPartial(modelBuilder);
