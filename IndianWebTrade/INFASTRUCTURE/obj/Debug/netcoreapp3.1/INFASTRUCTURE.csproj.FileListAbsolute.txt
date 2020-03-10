@@ -1,0 +1,11 @@
+E:\MasterBranch\IndianWebTrade\INFASTRUCTURE\bin\Debug\netcoreapp3.1\INFASTRUCTURE.deps.json
+E:\MasterBranch\IndianWebTrade\INFASTRUCTURE\bin\Debug\netcoreapp3.1\INFASTRUCTURE.dll
+E:\MasterBranch\IndianWebTrade\INFASTRUCTURE\bin\Debug\netcoreapp3.1\INFASTRUCTURE.pdb
+E:\MasterBranch\IndianWebTrade\INFASTRUCTURE\bin\Debug\netcoreapp3.1\DAL.dll
+E:\MasterBranch\IndianWebTrade\INFASTRUCTURE\bin\Debug\netcoreapp3.1\DAL.pdb
+E:\MasterBranch\IndianWebTrade\INFASTRUCTURE\obj\Debug\netcoreapp3.1\INFASTRUCTURE.csprojAssemblyReference.cache
+E:\MasterBranch\IndianWebTrade\INFASTRUCTURE\obj\Debug\netcoreapp3.1\INFASTRUCTURE.AssemblyInfoInputs.cache
+E:\MasterBranch\IndianWebTrade\INFASTRUCTURE\obj\Debug\netcoreapp3.1\INFASTRUCTURE.AssemblyInfo.cs
+E:\MasterBranch\IndianWebTrade\INFASTRUCTURE\obj\Debug\netcoreapp3.1\INFASTRUCTURE.csproj.CopyComplete
+E:\MasterBranch\IndianWebTrade\INFASTRUCTURE\obj\Debug\netcoreapp3.1\INFASTRUCTURE.dll
+E:\MasterBranch\IndianWebTrade\INFASTRUCTURE\obj\Debug\netcoreapp3.1\INFASTRUCTURE.pdb

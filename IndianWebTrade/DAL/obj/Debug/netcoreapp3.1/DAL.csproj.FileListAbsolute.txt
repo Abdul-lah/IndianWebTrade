@@ -1,0 +1,10 @@
+E:\MasterBranch\IndianWebTrade\DAL\bin\Debug\netcoreapp3.1\DAL.deps.json
+E:\MasterBranch\IndianWebTrade\DAL\bin\Debug\netcoreapp3.1\DAL.dll
+E:\MasterBranch\IndianWebTrade\DAL\bin\Debug\netcoreapp3.1\DAL.pdb
+E:\MasterBranch\IndianWebTrade\DAL\obj\Debug\netcoreapp3.1\DAL.csprojAssemblyReference.cache
+E:\MasterBranch\IndianWebTrade\DAL\obj\Debug\netcoreapp3.1\DAL.AssemblyInfoInputs.cache
+E:\MasterBranch\IndianWebTrade\DAL\obj\Debug\netcoreapp3.1\DAL.AssemblyInfo.cs
+E:\MasterBranch\IndianWebTrade\DAL\obj\Debug\netcoreapp3.1\DAL.dll
+E:\MasterBranch\IndianWebTrade\DAL\obj\Debug\netcoreapp3.1\DAL.pdb
+E:\MasterBranch\IndianWebTrade\DAL\bin\Debug\netcoreapp3.1\DAL.runtimeconfig.json
+E:\MasterBranch\IndianWebTrade\DAL\bin\Debug\netcoreapp3.1\DAL.runtimeconfig.dev.json

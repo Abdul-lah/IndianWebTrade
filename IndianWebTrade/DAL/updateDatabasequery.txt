@@ -1,0 +1,1 @@
+﻿Scaffold-DbContext "workstation id=CvDataBase.mssql.somee.com;packet size=4096;user id=AbdullahCV_SQLLogin_1;pwd=xdxv95yes8;data source=CvDataBase.mssql.somee.com;persist security info=False;initial catalog=CvDataBase;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir DAL -f
