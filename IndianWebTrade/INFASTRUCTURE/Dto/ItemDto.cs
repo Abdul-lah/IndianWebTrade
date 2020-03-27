@@ -13,5 +13,13 @@ namespace INFASTRUCTURE.Dto
         public string ImageUrl { get; set; }
         public int? SellerId { get; set; }
     }
+    public  class SellerDto
+    {
+        public int SellerId { get; set; }
+        public string SellerName { get; set; }
+        public string SellerEmail { get; set; }
+        public string SellerImageUrl { get; set; }
+        public string SellerAddress { get; set; }
+    }
 
 }
