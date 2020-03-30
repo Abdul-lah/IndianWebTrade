@@ -11,6 +11,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Service.Interface;
+using Service.Repositry;
 
 namespace IndianWebTradeApi
 {
@@ -28,6 +30,7 @@ namespace IndianWebTradeApi
         {
             services.AddControllers();
             services.AddDbContext<IndianWebTradeDBContext>(option => option.UseSqlServer(Configuration["conectionString:DefaultConection"]));
+            services.AddTransient<IAccount, AccountService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "INFASTRUCTURE", "INFASTRUCT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IndianWebTradeApi", "IndianWebTradeApi\IndianWebTradeApi.csproj", "{93958CD6-88D7-4312-B030-D81BBD404DEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{13EAEF3F-C0AD-4D9A-A3A0-E7E9490D417E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service", "Service\Service.csproj", "{13EAEF3F-C0AD-4D9A-A3A0-E7E9490D417E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

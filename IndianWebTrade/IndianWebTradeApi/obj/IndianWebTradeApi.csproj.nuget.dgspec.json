@@ -102,6 +102,9 @@
               },
               "E:\\MasterBranch\\IndianWebTrade\\INFASTRUCTURE\\INFASTRUCTURE.csproj": {
                 "projectPath": "E:\\MasterBranch\\IndianWebTrade\\INFASTRUCTURE\\INFASTRUCTURE.csproj"
+              },
+              "E:\\MasterBranch\\IndianWebTrade\\Service\\Service.csproj": {
+                "projectPath": "E:\\MasterBranch\\IndianWebTrade\\Service\\Service.csproj"
               }
             }
           }
@@ -197,6 +200,68 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\MasterBranch\\IndianWebTrade\\Service\\Service.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\MasterBranch\\IndianWebTrade\\Service\\Service.csproj",
+        "projectName": "Service",
+        "projectPath": "E:\\MasterBranch\\IndianWebTrade\\Service\\Service.csproj",
+        "packagesPath": "C:\\Users\\Abdullah\\.nuget\\packages\\",
+        "outputPath": "E:\\MasterBranch\\IndianWebTrade\\Service\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Abdullah\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "E:\\MasterBranch\\IndianWebTrade\\INFASTRUCTURE\\INFASTRUCTURE.csproj": {
+                "projectPath": "E:\\MasterBranch\\IndianWebTrade\\INFASTRUCTURE\\INFASTRUCTURE.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
