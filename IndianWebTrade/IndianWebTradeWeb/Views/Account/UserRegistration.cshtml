@@ -1,0 +1,69 @@
+﻿@model INFASTRUCTURE.Model.UserViewModel
+
+@{
+    ViewData["Title"] = "UserRegistration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>User Registration</h3>
+<hr />
+<div class="row" style="margin-left:50px;">
+    <div class="col-md-10">
+        <form asp-action="UserRegistration" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="col form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col form-group">
+                    <label asp-for="Password" class="control-label"></label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="col form-group">
+                    <label asp-for="Address" class="control-label"></label>
+                    <input asp-for="Address" class="form-control" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col form-group">
+                    <label class="control-label">Image</label>
+                </div>
+                <div class="col form-group">
+                    <input type="file" name="file" />
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-left:300px;">
+                <input type="submit" value="Save" id="btn" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+<script>
+
+        //$("#btn").click(function () {
+        //    $("#imglabel").text("Wait");
+        //    $("#imglabel").css("color","Red");
+        //});
+
+</script>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

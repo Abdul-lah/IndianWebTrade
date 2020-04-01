@@ -15,4 +15,5 @@ namespace DAL.IndianTradeDb
         public bool? IsDelete { get; set; }
         public string Discription { get; set; }
     }
+   
 }

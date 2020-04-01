@@ -2,12 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DAL.IndianTradeDb;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Service.Interface;
+using Service.Repositry;
 
 namespace IndianWebTradeWeb
 {
@@ -24,6 +28,10 @@ namespace IndianWebTradeWeb
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddDbContext<IndianWebTradeDBContext>(option => option.UseSqlServer("server=DESKTOP-T5N0PPO;Database=IndianWebTradeDataBase;Trusted_Connection=True;"));
+
+            services.AddTransient<IAccount, AccountService>();
+            services.AddTransient<IItem, ItemService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
