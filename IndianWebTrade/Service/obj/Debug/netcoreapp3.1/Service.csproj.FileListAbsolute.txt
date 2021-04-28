@@ -11,3 +11,17 @@ E:\MasterBranch\IndianWebTrade\Service\bin\Debug\netcoreapp3.1\INFASTRUCTURE.dll
 E:\MasterBranch\IndianWebTrade\Service\bin\Debug\netcoreapp3.1\INFASTRUCTURE.pdb
 E:\MasterBranch\IndianWebTrade\Service\bin\Debug\netcoreapp3.1\DAL.pdb
 E:\MasterBranch\IndianWebTrade\Service\obj\Debug\netcoreapp3.1\Service.csproj.CopyComplete
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\Service\bin\Debug\netcoreapp3.1\Service.deps.json
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\Service\bin\Debug\netcoreapp3.1\Service.dll
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\Service\bin\Debug\netcoreapp3.1\Service.pdb
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\Service\bin\Debug\netcoreapp3.1\DAL.dll
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\Service\bin\Debug\netcoreapp3.1\INFASTRUCTURE.dll
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\Service\bin\Debug\netcoreapp3.1\INFASTRUCTURE.pdb
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\Service\bin\Debug\netcoreapp3.1\DAL.pdb
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\Service\obj\Debug\netcoreapp3.1\Service.csprojAssemblyReference.cache
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\Service\obj\Debug\netcoreapp3.1\Service.AssemblyInfoInputs.cache
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\Service\obj\Debug\netcoreapp3.1\Service.AssemblyInfo.cs
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\Service\obj\Debug\netcoreapp3.1\Service.csproj.CoreCompileInputs.cache
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\Service\obj\Debug\netcoreapp3.1\Service.csproj.CopyComplete
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\Service\obj\Debug\netcoreapp3.1\Service.dll
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\Service\obj\Debug\netcoreapp3.1\Service.pdb

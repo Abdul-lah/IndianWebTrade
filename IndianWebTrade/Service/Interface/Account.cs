@@ -12,6 +12,7 @@ namespace Service.Interface
     {
         IGernalResult UserRegistration(UserDto dto);
         IGernalResult AddUserRole(UserRoleDto dto);
+        IGernalResult EditUser(UserDto dto);
 
     }
 

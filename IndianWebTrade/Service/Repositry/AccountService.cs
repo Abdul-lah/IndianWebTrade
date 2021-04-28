@@ -5,7 +5,7 @@ using Service.Interface;
 using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.Linq;
 namespace Service.Repositry
 {
     public class AccountService : IAccount
@@ -58,6 +58,32 @@ namespace Service.Repositry
                 int save = _dbContext.SaveChanges();
                 result.Succsefully = save > 0 ? true : false;
                 result.Message = save > 0 ? "User register Succsefully" : "User not register";
+
+            }
+            catch
+            {
+                result.Succsefully = false;
+                result.Message = "server error";
+            }
+            return result;
+        }
+        public IGernalResult EditUser(UserDto dto)
+        {
+            IGernalResult result = new GernalResult();
+            try
+            {
+                TblUser User = _dbContext.TblUser.Where(w => w.Id == dto.Id).FirstOrDefault();
+                {
+                    User.Name = dto.Name;
+                    User.Address = dto.Address;
+
+                    User.ImageUrl = dto.ImageUrl;
+                    
+                };
+               
+                int save = _dbContext.SaveChanges();
+                result.Succsefully = save > 0 ? true : false;
+                result.Message = save > 0 ? "User update Succsefully" : "User not update";
 
             }
             catch

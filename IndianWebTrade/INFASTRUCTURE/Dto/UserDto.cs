@@ -33,4 +33,10 @@ namespace INFASTRUCTURE.Dto
         public string Discription { get; set; }
         public List<string> ImageUrl { get; set; }
     }
+    public class CategoryDto
+    {
+        public int Id { get; set; }
+        public int CatogeryId { get; set; }
+        public string CatogeryName { get; set; }
+    }
 }

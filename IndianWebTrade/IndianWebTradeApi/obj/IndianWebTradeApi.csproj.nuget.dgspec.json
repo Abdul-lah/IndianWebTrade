@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\MasterBranch\\IndianWebTrade\\IndianWebTradeApi\\IndianWebTradeApi.csproj": {}
+    "C:\\Users\\Abdullah\\Desktop\\gzit\\IndianWebTrade\\IndianWebTradeApi\\IndianWebTradeApi.csproj": {}
   },
   "projects": {
-    "E:\\MasterBranch\\IndianWebTrade\\DAL\\DAL.csproj": {
+    "C:\\Users\\Abdullah\\Desktop\\gzit\\IndianWebTrade\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\MasterBranch\\IndianWebTrade\\DAL\\DAL.csproj",
+        "projectUniqueName": "C:\\Users\\Abdullah\\Desktop\\gzit\\IndianWebTrade\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "E:\\MasterBranch\\IndianWebTrade\\DAL\\DAL.csproj",
+        "projectPath": "C:\\Users\\Abdullah\\Desktop\\gzit\\IndianWebTrade\\DAL\\DAL.csproj",
         "packagesPath": "C:\\Users\\Abdullah\\.nuget\\packages\\",
-        "outputPath": "E:\\MasterBranch\\IndianWebTrade\\DAL\\obj\\",
+        "outputPath": "C:\\Users\\Abdullah\\Desktop\\gzit\\IndianWebTrade\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Abdullah\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -26,6 +26,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -37,6 +38,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -70,18 +72,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\MasterBranch\\IndianWebTrade\\IndianWebTradeApi\\IndianWebTradeApi.csproj": {
+    "C:\\Users\\Abdullah\\Desktop\\gzit\\IndianWebTrade\\IndianWebTradeApi\\IndianWebTradeApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\MasterBranch\\IndianWebTrade\\IndianWebTradeApi\\IndianWebTradeApi.csproj",
+        "projectUniqueName": "C:\\Users\\Abdullah\\Desktop\\gzit\\IndianWebTrade\\IndianWebTradeApi\\IndianWebTradeApi.csproj",
         "projectName": "IndianWebTradeApi",
-        "projectPath": "E:\\MasterBranch\\IndianWebTrade\\IndianWebTradeApi\\IndianWebTradeApi.csproj",
+        "projectPath": "C:\\Users\\Abdullah\\Desktop\\gzit\\IndianWebTrade\\IndianWebTradeApi\\IndianWebTradeApi.csproj",
         "packagesPath": "C:\\Users\\Abdullah\\.nuget\\packages\\",
-        "outputPath": "E:\\MasterBranch\\IndianWebTrade\\IndianWebTradeApi\\obj\\",
+        "outputPath": "C:\\Users\\Abdullah\\Desktop\\gzit\\IndianWebTrade\\IndianWebTradeApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Abdullah\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -96,15 +98,16 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "E:\\MasterBranch\\IndianWebTrade\\DAL\\DAL.csproj": {
-                "projectPath": "E:\\MasterBranch\\IndianWebTrade\\DAL\\DAL.csproj"
+              "C:\\Users\\Abdullah\\Desktop\\gzit\\IndianWebTrade\\DAL\\DAL.csproj": {
+                "projectPath": "C:\\Users\\Abdullah\\Desktop\\gzit\\IndianWebTrade\\DAL\\DAL.csproj"
               },
-              "E:\\MasterBranch\\IndianWebTrade\\INFASTRUCTURE\\INFASTRUCTURE.csproj": {
-                "projectPath": "E:\\MasterBranch\\IndianWebTrade\\INFASTRUCTURE\\INFASTRUCTURE.csproj"
+              "C:\\Users\\Abdullah\\Desktop\\gzit\\IndianWebTrade\\INFASTRUCTURE\\INFASTRUCTURE.csproj": {
+                "projectPath": "C:\\Users\\Abdullah\\Desktop\\gzit\\IndianWebTrade\\INFASTRUCTURE\\INFASTRUCTURE.csproj"
               },
-              "E:\\MasterBranch\\IndianWebTrade\\Service\\Service.csproj": {
-                "projectPath": "E:\\MasterBranch\\IndianWebTrade\\Service\\Service.csproj"
+              "C:\\Users\\Abdullah\\Desktop\\gzit\\IndianWebTrade\\Service\\Service.csproj": {
+                "projectPath": "C:\\Users\\Abdullah\\Desktop\\gzit\\IndianWebTrade\\Service\\Service.csproj"
               }
             }
           }
@@ -117,6 +120,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -159,18 +163,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\MasterBranch\\IndianWebTrade\\INFASTRUCTURE\\INFASTRUCTURE.csproj": {
+    "C:\\Users\\Abdullah\\Desktop\\gzit\\IndianWebTrade\\INFASTRUCTURE\\INFASTRUCTURE.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\MasterBranch\\IndianWebTrade\\INFASTRUCTURE\\INFASTRUCTURE.csproj",
+        "projectUniqueName": "C:\\Users\\Abdullah\\Desktop\\gzit\\IndianWebTrade\\INFASTRUCTURE\\INFASTRUCTURE.csproj",
         "projectName": "INFASTRUCTURE",
-        "projectPath": "E:\\MasterBranch\\IndianWebTrade\\INFASTRUCTURE\\INFASTRUCTURE.csproj",
+        "projectPath": "C:\\Users\\Abdullah\\Desktop\\gzit\\IndianWebTrade\\INFASTRUCTURE\\INFASTRUCTURE.csproj",
         "packagesPath": "C:\\Users\\Abdullah\\.nuget\\packages\\",
-        "outputPath": "E:\\MasterBranch\\IndianWebTrade\\INFASTRUCTURE\\obj\\",
+        "outputPath": "C:\\Users\\Abdullah\\Desktop\\gzit\\IndianWebTrade\\INFASTRUCTURE\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Abdullah\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -185,9 +189,10 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "E:\\MasterBranch\\IndianWebTrade\\DAL\\DAL.csproj": {
-                "projectPath": "E:\\MasterBranch\\IndianWebTrade\\DAL\\DAL.csproj"
+              "C:\\Users\\Abdullah\\Desktop\\gzit\\IndianWebTrade\\DAL\\DAL.csproj": {
+                "projectPath": "C:\\Users\\Abdullah\\Desktop\\gzit\\IndianWebTrade\\DAL\\DAL.csproj"
               }
             }
           }
@@ -200,6 +205,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -215,18 +221,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\MasterBranch\\IndianWebTrade\\Service\\Service.csproj": {
+    "C:\\Users\\Abdullah\\Desktop\\gzit\\IndianWebTrade\\Service\\Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\MasterBranch\\IndianWebTrade\\Service\\Service.csproj",
+        "projectUniqueName": "C:\\Users\\Abdullah\\Desktop\\gzit\\IndianWebTrade\\Service\\Service.csproj",
         "projectName": "Service",
-        "projectPath": "E:\\MasterBranch\\IndianWebTrade\\Service\\Service.csproj",
+        "projectPath": "C:\\Users\\Abdullah\\Desktop\\gzit\\IndianWebTrade\\Service\\Service.csproj",
         "packagesPath": "C:\\Users\\Abdullah\\.nuget\\packages\\",
-        "outputPath": "E:\\MasterBranch\\IndianWebTrade\\Service\\obj\\",
+        "outputPath": "C:\\Users\\Abdullah\\Desktop\\gzit\\IndianWebTrade\\Service\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Abdullah\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -241,9 +247,10 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "E:\\MasterBranch\\IndianWebTrade\\INFASTRUCTURE\\INFASTRUCTURE.csproj": {
-                "projectPath": "E:\\MasterBranch\\IndianWebTrade\\INFASTRUCTURE\\INFASTRUCTURE.csproj"
+              "C:\\Users\\Abdullah\\Desktop\\gzit\\IndianWebTrade\\INFASTRUCTURE\\INFASTRUCTURE.csproj": {
+                "projectPath": "C:\\Users\\Abdullah\\Desktop\\gzit\\IndianWebTrade\\INFASTRUCTURE\\INFASTRUCTURE.csproj"
               }
             }
           }
@@ -256,6 +263,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -277,7 +285,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

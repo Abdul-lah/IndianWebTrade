@@ -9,3 +9,15 @@ E:\MasterBranch\IndianWebTrade\INFASTRUCTURE\obj\Debug\netcoreapp3.1\INFASTRUCTU
 E:\MasterBranch\IndianWebTrade\INFASTRUCTURE\obj\Debug\netcoreapp3.1\INFASTRUCTURE.csproj.CopyComplete
 E:\MasterBranch\IndianWebTrade\INFASTRUCTURE\obj\Debug\netcoreapp3.1\INFASTRUCTURE.dll
 E:\MasterBranch\IndianWebTrade\INFASTRUCTURE\obj\Debug\netcoreapp3.1\INFASTRUCTURE.pdb
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\INFASTRUCTURE\bin\Debug\netcoreapp3.1\INFASTRUCTURE.deps.json
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\INFASTRUCTURE\bin\Debug\netcoreapp3.1\INFASTRUCTURE.dll
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\INFASTRUCTURE\bin\Debug\netcoreapp3.1\INFASTRUCTURE.pdb
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\INFASTRUCTURE\bin\Debug\netcoreapp3.1\DAL.dll
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\INFASTRUCTURE\bin\Debug\netcoreapp3.1\DAL.pdb
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\INFASTRUCTURE\obj\Debug\netcoreapp3.1\INFASTRUCTURE.csprojAssemblyReference.cache
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\INFASTRUCTURE\obj\Debug\netcoreapp3.1\INFASTRUCTURE.AssemblyInfoInputs.cache
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\INFASTRUCTURE\obj\Debug\netcoreapp3.1\INFASTRUCTURE.AssemblyInfo.cs
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\INFASTRUCTURE\obj\Debug\netcoreapp3.1\INFASTRUCTURE.csproj.CoreCompileInputs.cache
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\INFASTRUCTURE\obj\Debug\netcoreapp3.1\INFASTRUCTURE.csproj.CopyComplete
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\INFASTRUCTURE\obj\Debug\netcoreapp3.1\INFASTRUCTURE.dll
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\INFASTRUCTURE\obj\Debug\netcoreapp3.1\INFASTRUCTURE.pdb
