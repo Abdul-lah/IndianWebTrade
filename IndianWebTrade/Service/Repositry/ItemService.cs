@@ -29,7 +29,8 @@ namespace Service.Repositry
                 Quantity = s.Quantity,
                 SellerId =Convert.ToInt32( s.SellerId),
                 CreatedDate=DateTime.UtcNow,
-                IsAvailable=true
+                IsAvailable=true,
+                IsDelete=false
             };
     
             _dbContext.Add(item);
