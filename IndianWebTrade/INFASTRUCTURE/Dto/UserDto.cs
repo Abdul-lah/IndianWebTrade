@@ -34,6 +34,7 @@ namespace INFASTRUCTURE.Dto
         public bool? IsDelete { get; set; }
         public string Discription { get; set; }
         public List<string> ImageUrl { get; set; }
+        public string Image { get; set; }
     }
     public class CategoryDto
     {

@@ -16,9 +16,27 @@ namespace Service.Repositry
         {
             _dbContext = dBContext;
         }
-        public IGernalResult AddItem(ItemDto dto)
+        public IGernalResult AddItem(ItemDto s)
         {
-            throw new NotImplementedException();
+            IGernalResult result = new GernalResult();
+            TblItem item = new TblItem
+            {
+                Name = s.Name,
+                CategoryId = s.CatogeryId,
+                Discription = s.Discription,
+                ImageUrl = s.Image,
+                Price = s.Price,
+                Quantity = s.Quantity,
+                SellerId =Convert.ToInt32( s.SellerId),
+                CreatedDate=DateTime.UtcNow,
+                IsAvailable=true
+            };
+    
+            _dbContext.Add(item);
+            int save = _dbContext.SaveChanges();
+            result.Succsefully = save > 0 ? true : false;
+            result.Message = save > 0 ? "Selling Item add Succsefully" : "Selling Item not register";
+            return result;
         }
 
         public IGernalResult DelteItem(int id)

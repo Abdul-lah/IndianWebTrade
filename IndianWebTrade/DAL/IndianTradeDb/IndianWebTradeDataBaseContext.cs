@@ -60,6 +60,8 @@ namespace DAL.IndianTradeDb
 
                 entity.Property(e => e.Discription).HasMaxLength(220);
 
+                entity.Property(e => e.ImageUrl).HasMaxLength(250);
+
                 entity.Property(e => e.ItemId).HasMaxLength(20);
 
                 entity.Property(e => e.Name).HasMaxLength(30);

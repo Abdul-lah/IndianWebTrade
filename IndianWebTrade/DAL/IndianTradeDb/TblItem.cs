@@ -16,6 +16,7 @@ namespace DAL.IndianTradeDb
         public int? SellerId { get; set; }
         public bool? IsAvailable { get; set; }
         public DateTime? CreatedDate { get; set; }
+        public string ImageUrl { get; set; }
 
         public virtual MstCatogery Category { get; set; }
         public virtual TblUser Seller { get; set; }

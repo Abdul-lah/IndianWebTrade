@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace IndianWebTradeWeb.Models
 {
 
-    public class ProductItemViewModel
+    public class ProductItemViewModel1
     {
         public int Id { get; set; }
         public string ItemId { get; set; }
@@ -17,6 +17,6 @@ namespace IndianWebTradeWeb.Models
         public int? CatogeryId { get; set; }
         public bool? IsDelete { get; set; }
         public string Discription { get; set; }
-        public List<string> ImageUrl { get; set; }
+        public string Image { get; set; }
     }
 }

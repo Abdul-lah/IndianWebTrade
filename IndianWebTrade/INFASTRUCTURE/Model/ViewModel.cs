@@ -35,4 +35,27 @@ namespace INFASTRUCTURE.Model
 
         //public IFormFile ProfileImage { get; set; }
     }
+    public class ProductItemViewModel
+    {
+        //public int Id { get; set; }
+        //public string ItemId { get; set; }
+        [Display(Name = "Name")]
+        [Required]
+        public string Name { get; set; }
+
+        //public string SellerId { get; set; }
+        [Display(Name = "Quantity")]
+        [Required]
+        public string Quantity { get; set; }
+        [Display(Name = "Price")]
+        [Required]
+        public string Price { get; set; }
+        
+        public int CatogeryId { get; set; }
+        [Display(Name = "Discription")]
+        [Required]
+
+        public string Discription { get; set; }
+        public IFormFile Image { get; set; }
+    }
 }
