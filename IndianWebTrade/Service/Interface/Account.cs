@@ -14,6 +14,8 @@ namespace Service.Interface
         IGernalResult AddUserRole(UserRoleDto dto);
         IGernalResult EditUser(UserDto dto);
 
+        IGernalResult userLogin(UserDto dto);
+
     }
 
 }

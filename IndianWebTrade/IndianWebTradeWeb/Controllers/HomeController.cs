@@ -8,6 +8,8 @@ using Microsoft.Extensions.Logging;
 using IndianWebTradeWeb.Models;
 using Service.Interface;
 using INFASTRUCTURE.GernalResult;
+using INFASTRUCTURE.Model;
+using INFASTRUCTURE.Dto;
 
 namespace IndianWebTradeWeb.Controllers
 {
@@ -25,10 +27,28 @@ namespace IndianWebTradeWeb.Controllers
         public IActionResult Index()
         {
             IGernalResult result = new GernalResult();
-            result = _IItem.getAllItem();
-            
+            //result = _IItem.getAllItem();
+            List<ItemDto> items = _IItem.getAllItem();
+            List<ItemModel> modelList = new List<ItemModel>();
+          
+            foreach (var item in items)
+            {
+                ItemModel model = new ItemModel
+                {
+                    Discription=item.Discription,
+                    Id=item.Id,
+                    Price=item.Price,
+                    Quantity=item.Quantity,
+                    Image=item.Image,
+                    Name=item.Name,
+                    SellerId=item.SellerId,
+                };
+                modelList.Add(model);
 
-            return View();
+            }
+
+
+            return View(modelList);
         }
 
         public IActionResult Privacy()

@@ -40,6 +40,7 @@ namespace IndianWebTradeWeb.Controllers
         [HttpPost]
         public IActionResult AddProductItem(ProductItemViewModel model)
         {
+            var userId = HttpContext.Request.Cookies["user_id"];
             string imageurl = UploadedFile(model.Image);
             ViewBag.categories = _MasterService.GetCategories().Select(s => new CategoryDto
             {
@@ -54,7 +55,7 @@ namespace IndianWebTradeWeb.Controllers
                 Image = imageurl,
                 Price = model.Price,
                 Quantity = model.Quantity,
-                SellerId =Convert.ToString(1),
+                SellerId = userId,
             });
             ViewBag.msg = result.Message;
             return View();

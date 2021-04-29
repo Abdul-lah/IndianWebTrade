@@ -50,7 +50,7 @@ namespace INFASTRUCTURE.Model
         [Display(Name = "Price")]
         [Required]
         public string Price { get; set; }
-        
+
         public int CatogeryId { get; set; }
         [Display(Name = "Discription")]
         [Required]
@@ -58,4 +58,22 @@ namespace INFASTRUCTURE.Model
         public string Discription { get; set; }
         public IFormFile Image { get; set; }
     }
+    public class UserLoginModel
+    {
+        [Required(ErrorMessage = "Email is required")]
+        public string Email { get; set; }
+        [Required(ErrorMessage = "Password is required")]
+        public string Password { get; set; }
+        public bool RemberMe { get; set; }
+    }
+    public class CartViewModel
+    {
+        [Required]
+        public int ItemId { get; set; }
+        [Required]
+        public int Quantity { get; set; }
+
+
+    }
+
 }

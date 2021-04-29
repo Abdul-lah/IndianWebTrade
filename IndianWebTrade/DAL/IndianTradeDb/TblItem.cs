@@ -5,6 +5,11 @@ namespace DAL.IndianTradeDb
 {
     public partial class TblItem
     {
+        public TblItem()
+        {
+            TblCart = new HashSet<TblCart>();
+        }
+
         public int Id { get; set; }
         public string ItemId { get; set; }
         public string Name { get; set; }
@@ -20,5 +25,6 @@ namespace DAL.IndianTradeDb
 
         public virtual MstCatogery Category { get; set; }
         public virtual TblUser Seller { get; set; }
+        public virtual ICollection<TblCart> TblCart { get; set; }
     }
 }

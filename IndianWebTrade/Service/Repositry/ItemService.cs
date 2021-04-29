@@ -27,12 +27,12 @@ namespace Service.Repositry
                 ImageUrl = s.Image,
                 Price = s.Price,
                 Quantity = s.Quantity,
-                SellerId =Convert.ToInt32( s.SellerId),
-                CreatedDate=DateTime.UtcNow,
-                IsAvailable=true,
-                IsDelete=false
+                SellerId = Convert.ToInt32(s.SellerId),
+                CreatedDate = DateTime.UtcNow,
+                IsAvailable = true,
+                IsDelete = false
             };
-    
+
             _dbContext.Add(item);
             int save = _dbContext.SaveChanges();
             result.Succsefully = save > 0 ? true : false;
@@ -66,34 +66,36 @@ namespace Service.Repositry
             throw new NotImplementedException();
         }
 
-        public IGernalResult getAllItem()
+        public List<ItemDto> getAllItem()
         {
+            List<ItemDto> items = new List<ItemDto>();
             IGernalResult result = new GernalResult();
             try
             {
-                List<ItemDto> items = new List<ItemDto>();
+
                 items = _dbContext.TblItem.Select(s => new ItemDto
                 {
                     Name = s.Name,
-                    CatogeryId = s.CategoryId,
+                    CatogeryId = s.CategoryId ?? 0,
                     Discription = s.Discription,
                     Id = s.Id,
-                    ImageUrl = _dbContext.TblItemImage.Where(w => w.ItemId == s.Id).Select(s => s.ImageUrl).ToList(),
-                    ItemId = s.ItemId,
+                    // ImageUrl = _dbContext.TblItemImage.Where(w => w.ItemId == s.Id).Select(s => s.ImageUrl).ToList(),
+                    Image = s.ImageUrl,
                     Price = s.Price,
                     Quantity = s.Quantity,
                     SellerId = Convert.ToString(s.SellerId),
-                }).Where(w => w.IsDelete == false).ToList();
+                    SellerName = _dbContext.TblUser.Where(w => w.Id == s.SellerId).Select(s => s.Name).FirstOrDefault(),
+                }).ToList();
                 result.Succsefully = true;
                 result.value = items;
                 result.Message = Convert.ToString(items.Count);
             }
-            catch
+            catch (Exception ex)
             {
                 result.Succsefully = false;
                 result.Message = "Server error";
             }
-            return result;
+            return items;
         }
 
         public IGernalResult getItem(int id)
@@ -105,10 +107,11 @@ namespace Service.Repositry
                 item = _dbContext.TblItem.Select(s => new ItemDto
                 {
                     Name = s.Name,
-                    CatogeryId = s.CategoryId,
+                    CatogeryId = s.CategoryId ?? 0,
                     Discription = s.Discription,
                     Id = s.Id,
-                    ImageUrl = _dbContext.TblItemImage.Where(w => w.ItemId == id).Select(s => s.ImageUrl).ToList(),
+                    //ImageUrl = _dbContext.TblItemImage.Where(w => w.ItemId == id).Select(s => s.ImageUrl).ToList(),
+                    Image = s.ImageUrl,
                     ItemId = s.ItemId,
                     Price = s.Price,
                     Quantity = s.Quantity,

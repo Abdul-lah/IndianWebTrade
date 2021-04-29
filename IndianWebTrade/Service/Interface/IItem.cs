@@ -8,7 +8,7 @@ namespace Service.Interface
 {
     public interface IItem
     {
-        IGernalResult getAllItem();
+        List<ItemDto> getAllItem();
         IGernalResult getItem(int id);
 
         IGernalResult AddItem(ItemDto dto);

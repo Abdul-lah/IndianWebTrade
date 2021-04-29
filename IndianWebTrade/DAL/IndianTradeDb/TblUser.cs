@@ -7,6 +7,7 @@ namespace DAL.IndianTradeDb
     {
         public TblUser()
         {
+            TblCart = new HashSet<TblCart>();
             TblItem = new HashSet<TblItem>();
         }
 
@@ -21,6 +22,7 @@ namespace DAL.IndianTradeDb
         public bool? IsSeller { get; set; }
         public DateTime? CreatedDate { get; set; }
 
+        public virtual ICollection<TblCart> TblCart { get; set; }
         public virtual ICollection<TblItem> TblItem { get; set; }
     }
 }

@@ -17,6 +17,7 @@ namespace DAL.IndianTradeDb
 
         public virtual DbSet<MstCatogery> MstCatogery { get; set; }
         public virtual DbSet<MstRole> MstRole { get; set; }
+        public virtual DbSet<TblCart> TblCart { get; set; }
         public virtual DbSet<TblItem> TblItem { get; set; }
         public virtual DbSet<TblItemImage> TblItemImage { get; set; }
         public virtual DbSet<TblUser> TblUser { get; set; }
@@ -50,6 +51,33 @@ namespace DAL.IndianTradeDb
                 entity.Property(e => e.Role)
                     .IsRequired()
                     .HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<TblCart>(entity =>
+            {
+                entity.ToTable("tblCart");
+
+                entity.Property(e => e.CreatedDate).HasColumnType("datetime");
+
+                entity.Property(e => e.PricePerItem)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.TotalPrice)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.HasOne(d => d.Item)
+                    .WithMany(p => p.TblCart)
+                    .HasForeignKey(d => d.ItemId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_tblCart_tbl_Item");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.TblCart)
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_tblCart_tbl_User");
             });
 
             modelBuilder.Entity<TblItem>(entity =>

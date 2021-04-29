@@ -9,7 +9,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Service.Interface;
 using Microsoft.AspNetCore.Hosting;
-
+using INFASTRUCTURE.GernalResult;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication;
 
 namespace IndianWebTradeWeb.Controllers
 {
@@ -50,7 +52,7 @@ namespace IndianWebTradeWeb.Controllers
                 Address = model.Address,
                 Email = model.Email,
                 Password = model.Password,
-                Role = 1,
+                RoleId = 1,
             });
             return View();
         }
@@ -78,7 +80,7 @@ namespace IndianWebTradeWeb.Controllers
                 Address = model.Address,
                 Email = model.Email,
                 Password = model.Password,
-                Role = 2,
+                RoleId = 2,
                 MobileNo = model.MobileNo
             });
             ViewBag.msg = result.Message;
@@ -101,6 +103,60 @@ namespace IndianWebTradeWeb.Controllers
             }
 
             return uniqueFileName;
+        }
+
+        public IActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Login(UserLoginModel model)
+        {
+
+            IGernalResult result = new GernalResult();
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    result = _iAccount.userLogin(new UserDto
+                    {
+                        Email = model.Email,
+                        Password = model.Password,
+                    });
+                    if (result.Succsefully)
+
+                    {
+                        var data = result.value as UserDto;
+                        var userClaims = new List<Claim>()
+                {
+                    new Claim(ClaimTypes.Email, data.Email),
+                    new Claim(ClaimTypes.Role, data.Role),
+                    new Claim(ClaimTypes.PrimarySid,data.Id.ToString())
+
+                 };
+                        HttpContext.Response.Cookies.Append("user_id", Convert.ToString(data.Id));
+                        HttpContext.Response.Cookies.Append("Email", data.Email);
+                        var userIdentity = new ClaimsIdentity(userClaims, "User Identity");
+
+                        var userPrincipal = new ClaimsPrincipal(new[] { userIdentity });
+                        HttpContext.SignInAsync(userPrincipal);
+
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+                        ViewBag.message = result.Message;
+                        return View();
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    throw;
+                }
+            }
+            return View();
+
         }
     }
 }

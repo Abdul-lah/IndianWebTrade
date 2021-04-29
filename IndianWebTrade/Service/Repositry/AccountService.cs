@@ -15,7 +15,45 @@ namespace Service.Repositry
         {
             _dbContext = dBContext;
         }
-
+        public IGernalResult userLogin(UserDto dto)
+        {
+            IGernalResult result = new GernalResult();
+            try
+            {
+                TblUser user = _dbContext.TblUser.Where(w => w.Email == dto.Email).FirstOrDefault();
+                if (user != null)
+                {
+                    if (user.Password == dto.Password)
+                    {
+                        var roles = _dbContext.MstRole.Where(w => w.Id == user.RoleId).FirstOrDefault();
+                        result.Succsefully = true;
+                        result.value = new UserDto
+                        {
+                            Id = user.Id,
+                            RoleId = user.RoleId ?? 0,
+                            Email = user.Email,
+                            Role = roles.Role
+                        };
+                    }
+                    else
+                    {
+                        result.Succsefully = false;
+                        result.Message = "Password is wrong";
+                    }
+                }
+                else
+                {
+                    result.Succsefully = false;
+                    result.Message = "Please enter a valid email.";
+                }
+            }
+            catch
+            {
+                result.Succsefully = false;
+                result.Message = "server error.";
+            }
+            return result;
+        }
         public IGernalResult AddUserRole(UserRoleDto dto)
         {
             IGernalResult result = new GernalResult();
@@ -52,13 +90,13 @@ namespace Service.Repositry
                     Email = dto.Email,
                     Password = dto.Password,
                     ImageUrl = dto.ImageUrl,
-                    RoleId = dto.Role,
+                    RoleId = dto.RoleId,
                     MobileNo = dto.MobileNo,
                     CreatedDate = DateTime.UtcNow,
-                    IsSeller = dto.Role > 1 ? true : false
+                    IsSeller = dto.RoleId > 1 ? true : false
 
                 };
-                string userType = dto.Role > 1 ? "Seller" : "User";
+                string userType = dto.RoleId > 1 ? "Seller" : "User";
                 _dbContext.Add(User);
                 int save = _dbContext.SaveChanges();
                 result.Succsefully = save > 0 ? true : false;
