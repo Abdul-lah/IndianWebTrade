@@ -4,19 +4,19 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace DAL.IndianTradeDb
 {
-    public partial class IndianWebTradeDBContext : DbContext
+    public partial class IndianWebTradeDataBaseContext : DbContext
     {
-        public IndianWebTradeDBContext()
+        public IndianWebTradeDataBaseContext()
         {
         }
 
-        public IndianWebTradeDBContext(DbContextOptions<IndianWebTradeDBContext> options)
+        public IndianWebTradeDataBaseContext(DbContextOptions<IndianWebTradeDataBaseContext> options)
             : base(options)
         {
         }
 
         public virtual DbSet<MstCatogery> MstCatogery { get; set; }
-        public virtual DbSet<MstUserRole> MstUserRole { get; set; }
+        public virtual DbSet<MstRole> MstRole { get; set; }
         public virtual DbSet<TblItem> TblItem { get; set; }
         public virtual DbSet<TblItemImage> TblItemImage { get; set; }
         public virtual DbSet<TblUser> TblUser { get; set; }
@@ -43,16 +43,20 @@ namespace DAL.IndianTradeDb
                     .HasMaxLength(30);
             });
 
-            modelBuilder.Entity<MstUserRole>(entity =>
+            modelBuilder.Entity<MstRole>(entity =>
             {
-                entity.ToTable("mst_UserRole");
+                entity.ToTable("mstRole");
 
-                entity.Property(e => e.RoleName).HasMaxLength(40);
+                entity.Property(e => e.Role)
+                    .IsRequired()
+                    .HasMaxLength(50);
             });
 
             modelBuilder.Entity<TblItem>(entity =>
             {
                 entity.ToTable("tbl_Item");
+
+                entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.Discription).HasMaxLength(220);
 
@@ -64,7 +68,15 @@ namespace DAL.IndianTradeDb
 
                 entity.Property(e => e.Quantity).HasMaxLength(20);
 
-                entity.Property(e => e.SellerId).HasMaxLength(20);
+                entity.HasOne(d => d.Category)
+                    .WithMany(p => p.TblItem)
+                    .HasForeignKey(d => d.CategoryId)
+                    .HasConstraintName("FK__tbl_Item__Catego__4BAC3F29");
+
+                entity.HasOne(d => d.Seller)
+                    .WithMany(p => p.TblItem)
+                    .HasForeignKey(d => d.SellerId)
+                    .HasConstraintName("FK__tbl_Item__Seller__4CA06362");
             });
 
             modelBuilder.Entity<TblItemImage>(entity =>
@@ -80,9 +92,13 @@ namespace DAL.IndianTradeDb
 
                 entity.Property(e => e.Address).HasMaxLength(140);
 
+                entity.Property(e => e.CreatedDate).HasColumnType("datetime");
+
                 entity.Property(e => e.Email).HasMaxLength(40);
 
                 entity.Property(e => e.ImageUrl).HasMaxLength(140);
+
+                entity.Property(e => e.MobileNo).HasMaxLength(50);
 
                 entity.Property(e => e.Name).HasMaxLength(40);
 

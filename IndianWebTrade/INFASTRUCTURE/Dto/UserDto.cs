@@ -13,6 +13,8 @@ namespace INFASTRUCTURE.Dto
         public string ImageUrl { get; set; }
         public string Address { get; set; }
         public int? Role { get; set; }
+        public string MobileNo { get; set; }
+        public bool? IsSeller { get; set; }
     }
     public class UserRoleDto
     {
@@ -36,7 +38,6 @@ namespace INFASTRUCTURE.Dto
     public class CategoryDto
     {
         public int Id { get; set; }
-        public int CatogeryId { get; set; }
         public string CatogeryName { get; set; }
     }
 }

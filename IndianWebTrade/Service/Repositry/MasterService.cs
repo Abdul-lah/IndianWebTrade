@@ -9,8 +9,8 @@ namespace Service.Repositry
 {
     public class MasterService : IMasterService
     {
-        private readonly IndianWebTradeDBContext _dbContext;
-        public MasterService(IndianWebTradeDBContext dBContext)
+        private readonly IndianWebTradeDataBaseContext _dbContext;
+        public MasterService(IndianWebTradeDataBaseContext dBContext)
         {
             _dbContext = dBContext;
         }
@@ -19,7 +19,6 @@ namespace Service.Repositry
             return _dbContext.MstCatogery.Select(s => new CategoryDto
             {
                 Id = s.Id,
-                CatogeryId = s.CatogeryId,
                 CatogeryName = s.CatogeryName
             }).ToList();
         }

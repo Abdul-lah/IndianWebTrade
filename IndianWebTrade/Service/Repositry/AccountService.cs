@@ -10,8 +10,8 @@ namespace Service.Repositry
 {
     public class AccountService : IAccount
     {
-        private readonly IndianWebTradeDBContext _dbContext;
-        public AccountService(IndianWebTradeDBContext dBContext)
+        private readonly IndianWebTradeDataBaseContext _dbContext;
+        public AccountService(IndianWebTradeDataBaseContext dBContext)
         {
             _dbContext = dBContext;
         }
@@ -21,12 +21,12 @@ namespace Service.Repositry
             IGernalResult result = new GernalResult();
             try
             {
-                MstUserRole userRole = new MstUserRole
-                {
-                    RoleId = dto.Id,
-                    RoleName = dto.RoleName,
-                };
-                _dbContext.Add(userRole);
+                //MstUserRole userRole = new MstUserRole
+                //{
+                //    RoleId = dto.Id,
+                //    RoleName = dto.RoleName,
+                //};
+                // _dbContext.Add(userRole);
                 int save = _dbContext.SaveChanges();
                 result.Succsefully = save > 0 ? true : false;
                 result.Message = save > 0 ? "UserRole added Succsefully." : "UserRole not add.";
@@ -52,12 +52,17 @@ namespace Service.Repositry
                     Email = dto.Email,
                     Password = dto.Password,
                     ImageUrl = dto.ImageUrl,
-                    Role = dto.Role
+                    RoleId = dto.Role,
+                    MobileNo = dto.MobileNo,
+                    CreatedDate = DateTime.UtcNow,
+                    IsSeller = dto.Role > 1 ? true : false
+
                 };
+                string userType = dto.Role > 1 ? "Seller" : "User";
                 _dbContext.Add(User);
                 int save = _dbContext.SaveChanges();
                 result.Succsefully = save > 0 ? true : false;
-                result.Message = save > 0 ? "User register Succsefully" : "User not register";
+                result.Message = save > 0 ? userType + " register Succsefully" : userType + "not register";
 
             }
             catch
@@ -78,9 +83,9 @@ namespace Service.Repositry
                     User.Address = dto.Address;
 
                     User.ImageUrl = dto.ImageUrl;
-                    
+
                 };
-               
+
                 int save = _dbContext.SaveChanges();
                 result.Succsefully = save > 0 ? true : false;
                 result.Message = save > 0 ? "User update Succsefully" : "User not update";

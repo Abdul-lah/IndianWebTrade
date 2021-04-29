@@ -11,8 +11,8 @@ namespace Service.Repositry
 {
     public class ItemService : IItem
     {
-        private readonly IndianWebTradeDBContext _dbContext;
-        public ItemService(IndianWebTradeDBContext dBContext)
+        private readonly IndianWebTradeDataBaseContext _dbContext;
+        public ItemService(IndianWebTradeDataBaseContext dBContext)
         {
             _dbContext = dBContext;
         }
@@ -56,14 +56,14 @@ namespace Service.Repositry
                 items = _dbContext.TblItem.Select(s => new ItemDto
                 {
                     Name = s.Name,
-                    CatogeryId = s.CatogeryId,
+                    CatogeryId = s.CategoryId,
                     Discription = s.Discription,
                     Id = s.Id,
                     ImageUrl = _dbContext.TblItemImage.Where(w => w.ItemId == s.Id).Select(s => s.ImageUrl).ToList(),
                     ItemId = s.ItemId,
                     Price = s.Price,
                     Quantity = s.Quantity,
-                    SellerId = s.SellerId
+                    SellerId = Convert.ToString(s.SellerId),
                 }).Where(w => w.IsDelete == false).ToList();
                 result.Succsefully = true;
                 result.value = items;
@@ -86,14 +86,14 @@ namespace Service.Repositry
                 item = _dbContext.TblItem.Select(s => new ItemDto
                 {
                     Name = s.Name,
-                    CatogeryId = s.CatogeryId,
+                    CatogeryId = s.CategoryId,
                     Discription = s.Discription,
                     Id = s.Id,
                     ImageUrl = _dbContext.TblItemImage.Where(w => w.ItemId == id).Select(s => s.ImageUrl).ToList(),
                     ItemId = s.ItemId,
                     Price = s.Price,
                     Quantity = s.Quantity,
-                    SellerId = s.SellerId
+                    SellerId = Convert.ToString(s.SellerId),
                 }).Where(w => w.Id == id).FirstOrDefault();
 
                 result.Succsefully = true;

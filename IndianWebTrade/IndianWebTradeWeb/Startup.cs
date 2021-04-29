@@ -28,10 +28,11 @@ namespace IndianWebTradeWeb
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext<IndianWebTradeDBContext>(option => option.UseSqlServer("server=DESKTOP-T5N0PPO;Database=IndianWebTradeDataBase;Trusted_Connection=True;"));
+            services.AddDbContext<IndianWebTradeDataBaseContext>(option => option.UseSqlServer("server=DESKTOP-T5N0PPO;Database=IndianWebTradeDataBase;Trusted_Connection=True;"));
 
             services.AddTransient<IAccount, AccountService>();
             services.AddTransient<IItem, ItemService>();
+            services.AddTransient<IMasterService, MasterService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

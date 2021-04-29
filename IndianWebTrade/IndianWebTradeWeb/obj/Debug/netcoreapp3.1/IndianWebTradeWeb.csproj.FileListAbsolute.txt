@@ -289,3 +289,8 @@ C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcor
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcoreapp3.1\IndianWebTradeWeb.dll
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcoreapp3.1\IndianWebTradeWeb.pdb
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcoreapp3.1\IndianWebTradeWeb.genruntimeconfig.cache
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcoreapp3.1\Razor\Views\Account\SellerRegistration.cshtml.g.cs
