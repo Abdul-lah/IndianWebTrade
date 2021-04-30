@@ -36,12 +36,24 @@ namespace INFASTRUCTURE.Dto
         public int CatogeryId { get; set; }
         public bool IsDelete { get; set; }
         public string Discription { get; set; }
-     //   public List<string> ImageUrl { get; set; }
+        //   public List<string> ImageUrl { get; set; }
         public string Image { get; set; }
     }
     public class CategoryDto
     {
         public int Id { get; set; }
         public string CatogeryName { get; set; }
+    }
+    public class CartDto
+    {
+        public int Id { get; set; }
+        public int ItemId { get; set; }
+        public string ItemName { get; set; }
+        public int Quantity { get; set; }
+        public int PricePerItem { get; set; }
+        public string TotalPrice { get; set; }
+        public string ImageUrl { get; set; }
+        public int UserId { get; set; }
+        public DateTime CreatedDate { get; set; }
     }
 }

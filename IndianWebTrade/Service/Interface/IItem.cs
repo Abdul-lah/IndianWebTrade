@@ -15,5 +15,10 @@ namespace Service.Interface
         IGernalResult EditItem(ItemDto dto);
         IGernalResult DelteItem(int id);
 
+        CartDto AddTocart(CartDto CartDto);
+        List<CartDto> GetUsercartById(int userId);
+
+        bool RemoveFromCart(int cartId, int userId);
+
     }
 }

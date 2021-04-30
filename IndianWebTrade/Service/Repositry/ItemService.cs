@@ -128,5 +128,72 @@ namespace Service.Repositry
             }
             return result;
         }
+
+        public CartDto AddTocart(CartDto dto)
+        {
+
+            try
+            {
+                TblCart cart = new TblCart
+                {
+                    ItemId = dto.ItemId,
+                    PricePerItem = Convert.ToString(dto.PricePerItem),
+                    TotalPrice = Convert.ToString(Convert.ToInt32(dto.PricePerItem) * dto.Quantity),
+                    UserId = dto.UserId,
+                    Quantity = dto.Quantity,
+                    CreatedDate = DateTime.UtcNow,
+                };
+                _dbContext.Add(cart);
+                int save = _dbContext.SaveChanges();
+                dto.Id = cart.Id;
+            }
+            catch
+            {
+                throw;
+            }
+
+
+            return dto;
+        }
+
+        public List<CartDto> GetUsercartById(int userId)
+        {
+
+            try
+            {
+                return _dbContext.TblCart.Select(s => new CartDto
+                {
+                    Id = s.Id,
+                    ItemId = s.ItemId,
+                    ItemName = _dbContext.TblItem.Where(w => w.Id == s.ItemId).Select(s => s.Name).FirstOrDefault(),
+                    PricePerItem = Convert.ToInt32(s.PricePerItem),
+                    TotalPrice = s.TotalPrice,
+                    Quantity = s.Quantity,
+                    ImageUrl = s.Item.ImageUrl
+                }).ToList();
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        public bool RemoveFromCart(int cartId, int userId)
+        {
+            try
+            {
+                TblCart cart = _dbContext.TblCart.Where(w => w.Id == cartId && w.UserId == userId).FirstOrDefault();
+                if (cart != null)
+                {
+                    _dbContext.Remove(cart);
+                    _dbContext.SaveChanges();
+                    return true;
+                }
+                return false;
+            }
+            catch
+            {
+                throw;
+            }
+        }
     }
 }
