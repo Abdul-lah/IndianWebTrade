@@ -136,5 +136,24 @@ namespace Service.Repositry
             }
             return result;
         }
+
+        public IGernalResult ChangePassword(int id,string password)
+        {
+            IGernalResult result = new GernalResult();
+            try
+            {
+                TblUser User = _dbContext.TblUser.Where(w => w.Id == id).FirstOrDefault();
+                User.Password = password;
+                int update = _dbContext.SaveChanges();
+                result.Succsefully = true;
+                result.Message = "Password change succsefully.";
+            }
+            catch
+            {
+                result.Succsefully = false;
+                result.Message = "Server eroor";
+            }
+            return result;
+        }
     }
 }

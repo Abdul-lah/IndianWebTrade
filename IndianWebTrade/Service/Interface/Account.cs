@@ -13,6 +13,7 @@ namespace Service.Interface
         IGernalResult UserRegistration(UserDto dto);
         IGernalResult AddUserRole(UserRoleDto dto);
         IGernalResult EditUser(UserDto dto);
+        IGernalResult ChangePassword(int id, string password);
 
         IGernalResult userLogin(UserDto dto);
 

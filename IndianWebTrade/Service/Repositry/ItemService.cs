@@ -147,7 +147,7 @@ namespace Service.Repositry
                 int save = _dbContext.SaveChanges();
                 dto.Id = cart.Id;
             }
-            catch
+            catch(Exception ex)
             {
                 throw;
             }
@@ -163,7 +163,7 @@ namespace Service.Repositry
             {
                 return _dbContext.TblCart.Select(s => new CartDto
                 {
-                    Id = s.Id,
+                  
                     ItemId = s.ItemId,
                     ItemName = _dbContext.TblItem.Where(w => w.Id == s.ItemId).Select(s => s.Name).FirstOrDefault(),
                     PricePerItem = Convert.ToInt32(s.PricePerItem),

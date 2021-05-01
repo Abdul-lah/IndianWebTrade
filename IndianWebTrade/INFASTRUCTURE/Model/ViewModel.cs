@@ -75,5 +75,15 @@ namespace INFASTRUCTURE.Model
 
 
     }
+    public class ChangePassword
+    {
+        [Display(Name = "New Password")]
+        [Required]
+        public string NewPassword { get; set; }
+        [Required]
+        [Display(Name = "Confirm Password")]
+        [Compare("NewPassword", ErrorMessage = "New Password and confirm password does not match")]
+        public string ConfirmPassword { get; set; }
+    }
 
 }

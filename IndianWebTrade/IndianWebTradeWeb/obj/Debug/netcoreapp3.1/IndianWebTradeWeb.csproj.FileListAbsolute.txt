@@ -296,3 +296,4 @@ C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\bin\Debug\netcor
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcoreapp3.1\Razor\Views\Account\SellerRegistration.cshtml.g.cs
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcoreapp3.1\Razor\Views\Seller\AddProductItem.cshtml.g.cs
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs

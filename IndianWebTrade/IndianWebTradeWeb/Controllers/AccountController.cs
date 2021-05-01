@@ -29,11 +29,11 @@ namespace IndianWebTradeWeb.Controllers
         {
             return View();
         }
+
         public IActionResult UserRegistration()
         {
             return View();
         }
-
         [HttpPost]
         public IActionResult UserRegistration(UserViewModel model)
         {
@@ -57,11 +57,12 @@ namespace IndianWebTradeWeb.Controllers
             return View();
         }
 
+
+
         public IActionResult SellerRegistration()
         {
             return View();
         }
-
         [HttpPost]
         public IActionResult SellerRegistration(UserViewModel model)
         {
@@ -104,6 +105,8 @@ namespace IndianWebTradeWeb.Controllers
 
             return uniqueFileName;
         }
+
+
 
         public IActionResult Login()
         {
@@ -157,6 +160,37 @@ namespace IndianWebTradeWeb.Controllers
             }
             return View();
 
+        }
+
+
+        public IActionResult ChangePassword()
+        {
+            var userId = HttpContext.Request.Cookies["user_id"];
+            if (userId == null)
+            {
+                return Redirect("Login");
+            }
+
+            return View();
+        }
+        [HttpPost]
+        public IActionResult ChangePassword(ChangePassword password)
+        {
+            IGernalResult result = new GernalResult();
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var userId = HttpContext.Request.Cookies["user_id"];
+                    result = _iAccount.ChangePassword(Convert.ToInt32(userId), password.ConfirmPassword);
+                    ViewBag.msg = result.Succsefully ? "Your password has been changed" : "your password did not change";
+                }
+                catch
+                {
+                    ViewBag.msg = "Server error";
+                }
+            }
+            return View();
         }
     }
 }

@@ -53,17 +53,54 @@ namespace IndianWebTradeWeb.Controllers
 
         public string AddTocart(CartViewModel model)
         {
-            var userId = HttpContext.Request.Cookies["user_id"];
-            if (ModelState.IsValid)
+            var userId = Convert.ToInt32(HttpContext.Request.Cookies["user_id"]);
+
+            try
             {
-                _IItem.AddTocart(new CartDto
+
+                if (ModelState.IsValid)
                 {
-                    ItemId = model.ItemId,
-                    Quantity = model.Quantity,
-                    UserId = Convert.ToInt32(userId)
-                });
+                    List<ItemDto> items = _IItem.getAllItem();
+                    var item = items.Where(w => w.Id==model.ItemId).FirstOrDefault();
+                    var result = _IItem.AddTocart(new CartDto
+                    {
+                        ItemId = model.ItemId,
+                        Quantity = model.Quantity,
+                        UserId = userId,
+                        PricePerItem = Convert.ToInt32(item.Price)
+                    });
+                    return result.Id.ToString();
+                }
+                return "Model not valid";
             }
-            return "";
+            catch
+            {
+                throw;
+            }
+
+        }
+        public string RemoveTocart(int cartId)
+        {
+            try
+            {
+                if (cartId > 0)
+                {
+                    var userId = HttpContext.Request.Cookies["user_id"];
+
+                    var data = _IItem.RemoveFromCart(cartId, Convert.ToInt32(userId));
+
+                    return data ? "Item removed from cart" : "item does not remove from cart";
+                }
+                else
+                {
+                    return "please send valid cart id ";
+
+                }
+            }
+            catch
+            {
+                return "server error";
+            }
         }
 
 

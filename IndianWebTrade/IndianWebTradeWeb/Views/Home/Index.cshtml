@@ -7,6 +7,23 @@
 
 <h1>Index</h1>
 
+<tr>
+    @foreach (var items in Model)
+    {
+        <div class="col-sm">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="ItemImages/@items.Image" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">@items.Name</h5>
+                    <h4 class="card-title">₹@items.Price</h4>
+                    <p class="card-text">@items.Discription</p>
+
+                    <a class="btn btn-primary" onclick="addtocart(@items.Id)">Go somewhere</a>
+                </div>
+            </div>
+            </div>
+            }
+    </tr>
 <p>
     <a asp-action="Create">Create New</a>
 </p>
@@ -44,41 +61,57 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ItemId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SellerId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SellerName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quantity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Discription)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Image)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItemId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SellerId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SellerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Discription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Image)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+<script>
+    function addtocart(id) {
+        $.ajax({
+            method: "POST",
+            data: { "ItemId": id, "Quantity": 10 },
+        url: "@Url.Action("AddTocart", "Home")",
+            success: function (data) {
+                console.log(data);
+        },
+        error: function (data) {
+            alert('error' + data.status);
+        }
+    });
+    }
+</script>
