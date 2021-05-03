@@ -20,6 +20,7 @@ namespace DAL.IndianTradeDb
         public virtual DbSet<TblCart> TblCart { get; set; }
         public virtual DbSet<TblItem> TblItem { get; set; }
         public virtual DbSet<TblItemImage> TblItemImage { get; set; }
+        public virtual DbSet<TblOrder> TblOrder { get; set; }
         public virtual DbSet<TblUser> TblUser { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -114,6 +115,29 @@ namespace DAL.IndianTradeDb
                 entity.ToTable("tbl_ItemImage");
 
                 entity.Property(e => e.ImageUrl).HasMaxLength(250);
+            });
+
+            modelBuilder.Entity<TblOrder>(entity =>
+            {
+                entity.ToTable("tblOrder");
+
+                entity.Property(e => e.ItemId).HasColumnName("ItemID");
+
+                entity.Property(e => e.OrderDate).HasColumnType("datetime");
+
+                entity.Property(e => e.Quantity).HasColumnName("quantity");
+
+                entity.HasOne(d => d.Item)
+                    .WithMany(p => p.TblOrder)
+                    .HasForeignKey(d => d.ItemId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_tblOrder_tbl_Item");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.TblOrder)
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_tblOrder_tbl_User");
             });
 
             modelBuilder.Entity<TblUser>(entity =>

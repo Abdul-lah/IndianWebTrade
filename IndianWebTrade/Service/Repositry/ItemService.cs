@@ -212,5 +212,79 @@ namespace Service.Repositry
             }
 
         }
+
+        public IGernalResult AddOrder(OrderDto dto)
+        {
+            IGernalResult result = new GernalResult();
+            try
+            {
+                int totalplaceOrderquantiy = 0;
+
+                TblItem Item = _dbContext.TblItem.Where(w => w.Id == dto.ItemId).FirstOrDefault();
+                List<TblOrder> order = _dbContext.TblOrder.Where(w => w.ItemId == dto.ItemId && w.IsCanceled == false).ToList();
+                if (order != null)
+                {
+                    foreach (var item in order)
+                    {
+                        int v = item.Quantity + totalplaceOrderquantiy;
+                        totalplaceOrderquantiy = v;
+                    }
+                }
+                int avilableNow = Convert.ToInt32(Item.Quantity) - totalplaceOrderquantiy;
+                if (totalplaceOrderquantiy == Convert.ToInt32(Item.Quantity))
+                {
+                    result.Succsefully = false;
+                    result.Message = "Item not availablenow plz try some time later.";
+                }
+                else if (avilableNow < dto.Quantity)
+                {
+                    result.Succsefully = false;
+                    result.Message = "Now we have avilable only" + avilableNow;
+                }
+                else
+                {
+                    TblOrder Order = new TblOrder
+                    {
+                        IsCanceled = false,
+                        OrderDate = DateTime.UtcNow,
+                        UserId = dto.UserId,
+                        ItemId = dto.ItemId,
+                        PricePerItem = Convert.ToInt32(Item.Price),
+                        PriceTotal = Convert.ToInt32(Item.Price) * dto.Quantity,
+                    };
+                    _dbContext.Add(Order);
+                    int save = _dbContext.SaveChanges();
+                    result.Message = save > 0 ? "Order add Succsefully" : "Order not add";
+                    result.Succsefully = save > 0 ? true : false;
+                }
+            }
+            catch
+            {
+                result.Message = "server error";
+                result.Succsefully = false;
+            }
+            return result;
+        }
+
+        public IGernalResult CancelOrder(int orderId)
+        {
+            IGernalResult result = new GernalResult();
+            try
+            {
+
+                TblOrder order = _dbContext.TblOrder.Where(w => w.Id == orderId).FirstOrDefault();
+                order.IsCanceled = true;
+                int save = _dbContext.SaveChanges();
+                result.Message = save > 0 ? "Order cancel Succsefully" : "Order not cancel";
+                result.Succsefully = save > 0 ? true : false;
+
+            }
+            catch
+            {
+                result.Message = "server error";
+                result.Succsefully = false;
+            }
+            return result;
+        }
     }
 }

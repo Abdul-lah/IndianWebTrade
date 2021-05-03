@@ -21,5 +21,8 @@ namespace Service.Interface
         bool RemoveFromCart(int cartId, int userId);
         bool EditFromCart(int cartId, int Countity);
 
+        IGernalResult AddOrder(OrderDto dto);
+        IGernalResult CancelOrder(int orderId);
+
     }
 }

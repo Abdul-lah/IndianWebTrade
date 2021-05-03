@@ -8,6 +8,7 @@ namespace DAL.IndianTradeDb
         public TblItem()
         {
             TblCart = new HashSet<TblCart>();
+            TblOrder = new HashSet<TblOrder>();
         }
 
         public int Id { get; set; }
@@ -26,5 +27,6 @@ namespace DAL.IndianTradeDb
         public virtual MstCatogery Category { get; set; }
         public virtual TblUser Seller { get; set; }
         public virtual ICollection<TblCart> TblCart { get; set; }
+        public virtual ICollection<TblOrder> TblOrder { get; set; }
     }
 }

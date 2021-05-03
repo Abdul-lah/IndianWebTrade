@@ -56,4 +56,15 @@ namespace INFASTRUCTURE.Dto
         public int UserId { get; set; }
         public DateTime CreatedDate { get; set; }
     }
+    public class OrderDto
+    {
+        public int Id { get; set; }
+        public int ItemId { get; set; }
+        public int UserId { get; set; }
+        public int Quantity { get; set; }
+        public int PricePerItem { get; set; }
+        public int PriceTotal { get; set; }
+        public bool IsCanceled { get; set; }
+        public DateTime OrderDate { get; set; }
+    }
 }
