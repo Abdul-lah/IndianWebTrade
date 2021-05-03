@@ -147,7 +147,7 @@ namespace Service.Repositry
                 int save = _dbContext.SaveChanges();
                 dto.Id = cart.Id;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw;
             }
@@ -163,7 +163,7 @@ namespace Service.Repositry
             {
                 return _dbContext.TblCart.Select(s => new CartDto
                 {
-                  
+
                     ItemId = s.ItemId,
                     ItemName = _dbContext.TblItem.Where(w => w.Id == s.ItemId).Select(s => s.Name).FirstOrDefault(),
                     PricePerItem = Convert.ToInt32(s.PricePerItem),
@@ -194,6 +194,23 @@ namespace Service.Repositry
             {
                 throw;
             }
+        }
+
+        public bool EditFromCart(int cartId, int Countity)
+        {
+            try
+            {
+                TblCart cart = _dbContext.TblCart.Where(w => w.Id == cartId).FirstOrDefault();
+                cart.TotalPrice = Convert.ToString(Convert.ToInt32(cart.PricePerItem) * Countity);
+                cart.Quantity = Countity;
+                int save = _dbContext.SaveChanges();
+                return save > 0 ? true : false;
+            }
+            catch
+            {
+                throw;
+            }
+
         }
     }
 }

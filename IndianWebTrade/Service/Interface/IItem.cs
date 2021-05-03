@@ -19,6 +19,7 @@ namespace Service.Interface
         List<CartDto> GetUsercartById(int userId);
 
         bool RemoveFromCart(int cartId, int userId);
+        bool EditFromCart(int cartId, int Countity);
 
     }
 }
