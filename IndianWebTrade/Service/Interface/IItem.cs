@@ -8,6 +8,7 @@ namespace Service.Interface
 {
     public interface IItem
     {
+        bool IsAvilableItem(int cartId, int Countity, int itemid);
         List<ItemDto> getAllItem();
         IGernalResult getItem(int id);
 
@@ -19,7 +20,7 @@ namespace Service.Interface
         List<CartDto> GetUsercartById(int userId);
 
         bool RemoveFromCart(int cartId, int userId);
-        bool EditFromCart(int cartId, int Countity);
+        IGernalResult EditFromCart(int cartId, int Countity);
 
         IGernalResult AddOrder(OrderDto dto);
         IGernalResult CancelOrder(int orderId);

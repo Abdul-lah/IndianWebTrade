@@ -53,6 +53,7 @@ namespace IndianWebTradeWeb.Controllers
                 Email = model.Email,
                 Password = model.Password,
                 RoleId = 1,
+                MobileNo = model.MobileNo
             });
             return View();
         }

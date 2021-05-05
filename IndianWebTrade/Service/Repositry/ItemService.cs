@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace Service.Repositry
 {
@@ -63,7 +64,22 @@ namespace Service.Repositry
 
         public IGernalResult EditItem(ItemDto dto)
         {
-            throw new NotImplementedException();
+            IGernalResult result = new GernalResult();
+            TblItem item = _dbContext.TblItem.Where(w => w.Id == dto.Id).FirstOrDefault();
+
+            item.Name = dto.Name;
+            item.CategoryId = dto.CatogeryId;
+            item.Discription = dto.Discription;
+            item.ImageUrl = dto.Image;
+            item.Price = dto.Price;
+            item.Quantity = dto.Quantity;
+
+
+
+            int save = _dbContext.SaveChanges();
+            result.Succsefully = save > 0 ? true : false;
+            result.Message = save > 0 ? "Selling Item edit Succsefully" : "Selling Item not edit";
+            return result;
         }
 
         public List<ItemDto> getAllItem()
@@ -161,15 +177,18 @@ namespace Service.Repositry
 
             try
             {
-                return _dbContext.TblCart.Select(s => new CartDto
+                var data = _dbContext.TblCart.Include(i => i.Item).Where(w => w.UserId == userId).ToList();
+                //  return _dbContext.TblCart.Select(s => new CartDto
+                return data.Select(s => new CartDto
                 {
-
+                    Id = s.Id,
                     ItemId = s.ItemId,
                     ItemName = _dbContext.TblItem.Where(w => w.Id == s.ItemId).Select(s => s.Name).FirstOrDefault(),
                     PricePerItem = Convert.ToInt32(s.PricePerItem),
                     TotalPrice = s.TotalPrice,
                     Quantity = s.Quantity,
-                    ImageUrl = s.Item.ImageUrl
+                    ImageUrl = s.Item.ImageUrl,
+                    Discription = s.Item.Discription
                 }).ToList();
             }
             catch
@@ -181,6 +200,7 @@ namespace Service.Repositry
         {
             try
             {
+
                 TblCart cart = _dbContext.TblCart.Where(w => w.Id == cartId && w.UserId == userId).FirstOrDefault();
                 if (cart != null)
                 {
@@ -195,22 +215,93 @@ namespace Service.Repositry
                 throw;
             }
         }
-
-        public bool EditFromCart(int cartId, int Countity)
+        public bool IsAvilableItem(int cartId, int Countity, int itemid)
         {
+            bool avilable = false;
+            TblCart cart = new TblCart();
+            if (cartId > 0)
+            {
+                cart = _dbContext.TblCart.Where(w => w.Id == cartId).FirstOrDefault();
+            }
+            else
+            {
+                cart = _dbContext.TblCart.Where(w => w.ItemId == itemid).FirstOrDefault();
+            }
             try
             {
-                TblCart cart = _dbContext.TblCart.Where(w => w.Id == cartId).FirstOrDefault();
-                cart.TotalPrice = Convert.ToString(Convert.ToInt32(cart.PricePerItem) * Countity);
-                cart.Quantity = Countity;
-                int save = _dbContext.SaveChanges();
-                return save > 0 ? true : false;
+                int totalplaceOrderquantiy = 0;
+
+                TblItem Item = _dbContext.TblItem.Where(w => w.Id == cart.ItemId).FirstOrDefault();
+                List<TblOrder> order = _dbContext.TblOrder.Where(w => w.ItemId == cart.ItemId && w.IsCanceled == false).ToList();
+                if (order != null)
+                {
+                    foreach (var item in order)
+                    {
+                        int v = item.Quantity + totalplaceOrderquantiy;
+                        totalplaceOrderquantiy = v;
+                    }
+                }
+                int avilableNow = Convert.ToInt32(Item.Quantity) - totalplaceOrderquantiy;
+                if (totalplaceOrderquantiy == Convert.ToInt32(Item.Quantity))
+                {
+                    avilable = false;
+                }
+                else if (avilableNow < Countity)
+                {
+                    avilable = true;
+                }
+                return avilable;
             }
             catch
             {
                 throw;
             }
+        }
+        public IGernalResult EditFromCart(int cartId, int Countity)
+        {
+            IGernalResult result = new GernalResult();
+            TblCart cart = _dbContext.TblCart.Where(w => w.Id == cartId).FirstOrDefault();
+            try
+            {
+                int totalplaceOrderquantiy = 0;
 
+                TblItem Item = _dbContext.TblItem.Where(w => w.Id == cart.ItemId).FirstOrDefault();
+                List<TblOrder> order = _dbContext.TblOrder.Where(w => w.ItemId == cart.ItemId && w.IsCanceled == false).ToList();
+                if (order != null)
+                {
+                    foreach (var item in order)
+                    {
+                        int v = item.Quantity + totalplaceOrderquantiy;
+                        totalplaceOrderquantiy = v;
+                    }
+                }
+                int avilableNow = Convert.ToInt32(Item.Quantity) - totalplaceOrderquantiy;
+                if (totalplaceOrderquantiy == Convert.ToInt32(Item.Quantity))
+                {
+                    result.Succsefully = false;
+                    result.Message = "Item not availablenow plz try some time later.";
+                }
+                else if (avilableNow < Countity)
+                {
+                    result.Succsefully = false;
+                    result.Message = "Now we have avilable only" + avilableNow;
+                }
+                else
+                {
+
+                    cart.TotalPrice = Convert.ToString(Convert.ToInt32(cart.PricePerItem) * Countity);
+                    cart.Quantity = Countity;
+                    int save = _dbContext.SaveChanges();
+                    result.Succsefully = save > 0 ? true : false;
+                }
+            }
+            catch
+            {
+                result.Succsefully = false;
+                result.Message = "server error.";
+
+            }
+            return result;
         }
 
         public IGernalResult AddOrder(OrderDto dto)

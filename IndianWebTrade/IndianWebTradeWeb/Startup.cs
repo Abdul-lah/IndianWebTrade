@@ -12,6 +12,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Service.Interface;
 using Service.Repositry;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json.Serialization;
 
 namespace IndianWebTradeWeb
 {
@@ -30,9 +33,17 @@ namespace IndianWebTradeWeb
             services.AddControllersWithViews();
             services.AddDbContext<IndianWebTradeDataBaseContext>(option => option.UseSqlServer("server=DESKTOP-T5N0PPO;Database=IndianWebTradeDataBase;Trusted_Connection=True;"));
 
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
+            services.ConfigureApplicationCookie(option =>
+            {
+                option.AccessDeniedPath = new PathString("Account/Login");
+            });
+
             services.AddTransient<IAccount, AccountService>();
             services.AddTransient<IItem, ItemService>();
             services.AddTransient<IMasterService, MasterService>();
+
+          
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,6 +59,9 @@ namespace IndianWebTradeWeb
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            app.UseAuthentication();
+
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 

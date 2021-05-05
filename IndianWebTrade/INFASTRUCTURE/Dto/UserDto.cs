@@ -55,6 +55,7 @@ namespace INFASTRUCTURE.Dto
         public string ImageUrl { get; set; }
         public int UserId { get; set; }
         public DateTime CreatedDate { get; set; }
+        public string Discription { get; set; }
     }
     public class OrderDto
     {

@@ -1,19 +1,17 @@
-﻿using IndianWebTradeWeb.Models;
-using INFASTRUCTURE.Dto;
+﻿using INFASTRUCTURE.Dto;
 using INFASTRUCTURE.Model;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Service.Interface;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
-
+using Microsoft.AspNetCore.Authorization;
 namespace IndianWebTradeWeb.Controllers
 {
-    public class SellerController : Controller
+    public class SellerController
+        : Controller
     {
 
 
@@ -27,7 +25,7 @@ namespace IndianWebTradeWeb.Controllers
             webHostEnvironment = hostEnvironment;
         }
 
-
+        [Authorize(Roles = "Seller")]
         public IActionResult AddProductItem()
         {
             ViewBag.categories = _MasterService.GetCategories().Select(s => new CategoryDto

@@ -70,8 +70,17 @@ namespace INFASTRUCTURE.Model
     {
         [Required]
         public int ItemId { get; set; }
+        public int CartId { get; set; }
         [Required]
         public int Quantity { get; set; }
+        public int totalPriceOfALl { get; set; }
+
+        public string ItemName { get; set; }
+        public string Discription { get; set; }
+        public string ImageUrl { get; set; }
+        public int PricePerItem { get; set; }
+        public int TotalPrice { get; set; }
+        public bool IsAvilable { get; set; }
 
 
     }

@@ -10,6 +10,7 @@ using Service.Interface;
 using INFASTRUCTURE.GernalResult;
 using INFASTRUCTURE.Model;
 using INFASTRUCTURE.Dto;
+using Microsoft.AspNetCore.Authorization;
 
 namespace IndianWebTradeWeb.Controllers
 {
@@ -61,7 +62,7 @@ namespace IndianWebTradeWeb.Controllers
                 if (ModelState.IsValid)
                 {
                     List<ItemDto> items = _IItem.getAllItem();
-                    var item = items.Where(w => w.Id==model.ItemId).FirstOrDefault();
+                    var item = items.Where(w => w.Id == model.ItemId).FirstOrDefault();
                     var result = _IItem.AddTocart(new CartDto
                     {
                         ItemId = model.ItemId,
@@ -103,6 +104,67 @@ namespace IndianWebTradeWeb.Controllers
             }
         }
 
+        public IActionResult GetUserCart()
+        {
+            int totalPriceOfALl = 0;
+            var userId = Convert.ToInt32(HttpContext.Request.Cookies["user_id"]);
+            List<CartViewModel> viewmodel = new List<CartViewModel>();
+            List<CartDto> result = _IItem.GetUsercartById(userId);
+            foreach (var item in result)
+            {
+                totalPriceOfALl = totalPriceOfALl + Convert.ToInt32(item.TotalPrice);
+            }
+            viewmodel = result.Select(s => new CartViewModel
+            {
+
+                ItemId = s.ItemId,
+                ItemName = s.ItemName,
+                PricePerItem = s.PricePerItem,
+                TotalPrice = s.PricePerItem,
+                ImageUrl = s.ImageUrl,
+                Discription = s.Discription,
+                Quantity = s.Quantity,
+                CartId = s.Id,
+                IsAvilable = _IItem.IsAvilableItem(s.Id, s.Quantity, 0),
+                totalPriceOfALl = totalPriceOfALl
+            }).ToList();
+
+            return View(viewmodel);
+        }
+
+        // [Authorize(Roles = "Custumer")]
+        public JsonResult GetUserCartForAjax()
+        {
+            int totalPriceOfALl = 0;
+            var userId = Convert.ToInt32(HttpContext.Request.Cookies["user_id"]);
+            List<CartViewModel> viewmodel = new List<CartViewModel>();
+            List<CartDto> result = _IItem.GetUsercartById(userId);
+            foreach (var item in result)
+            {
+                totalPriceOfALl = totalPriceOfALl + Convert.ToInt32(item.TotalPrice);
+            }
+            viewmodel = result.Select(s => new CartViewModel
+            {
+
+                ItemId = s.ItemId,
+                ItemName = s.ItemName,
+                PricePerItem = s.PricePerItem,
+                TotalPrice = s.PricePerItem,
+                ImageUrl = s.ImageUrl,
+                Discription = s.Discription,
+                Quantity = s.Quantity,
+                CartId = s.Id,
+                IsAvilable = _IItem.IsAvilableItem(s.Id, s.Quantity, 0),
+                totalPriceOfALl = totalPriceOfALl
+            }).ToList();
+            return Json(viewmodel);
+        }
+        public JsonResult EditCart(int cartId, int quantity)
+        {
+            IGernalResult result = new GernalResult();
+            result = _IItem.EditFromCart(cartId, quantity);
+            return Json(result);
+        }
 
 
         public IActionResult Privacy()
