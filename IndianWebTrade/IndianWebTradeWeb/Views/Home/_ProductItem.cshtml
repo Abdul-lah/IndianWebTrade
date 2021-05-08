@@ -1,0 +1,25 @@
+﻿@model IEnumerable<IndianWebTradeWeb.Models.ItemModel>
+@foreach (var item in Model)
+{
+    <div class="col-md-3">
+        <div class="item">
+            <!-- Item img -->
+            <div class="item-img">
+                <img class="img-1" src="ItemImages/@item.Image" alt="">
+                <!-- Overlay -->
+                <div class="overlay">
+                    <div class="position-center-center">
+                        <div class="inn"><a href="ItemImages/@item.Image" data-lighter><i class="icon-magnifier"></i></a> <a href="#."><i class="icon-basket" onclick="addtocart(@item.Id)"></i></a> <a href="#."><i class="icon-heart"></i></a></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Item Name -->
+            <div class="item-name">
+                <a href="#.">@item.Name</a>
+                <p>@item.Discription</p>
+            </div>
+            <!-- Price -->
+            <span class="price"><small>$</small>@item.Price</span>
+        </div>
+    </div>
+}

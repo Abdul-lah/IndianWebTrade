@@ -10,8 +10,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 namespace IndianWebTradeWeb.Controllers
 {
-    public class SellerController
-        : Controller
+    public class SellerController: Controller
     {
 
 

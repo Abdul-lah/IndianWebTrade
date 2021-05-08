@@ -153,6 +153,7 @@ C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\bin\Debug\netcor
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\bin\Debug\netcoreapp3.1\IndianWebTradeWeb.pdb
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\bin\Debug\netcoreapp3.1\IndianWebTradeWeb.Views.dll
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\bin\Debug\netcoreapp3.1\IndianWebTradeWeb.Views.pdb
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
@@ -164,6 +165,7 @@ C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\bin\Debug\netcor
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
@@ -194,7 +196,9 @@ C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\bin\Debug\netcor
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\bin\Debug\netcoreapp3.1\System.Composition.Runtime.dll
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\bin\Debug\netcoreapp3.1\System.Composition.TypedParts.dll
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.resources.dll
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.resources.dll
@@ -275,9 +279,17 @@ C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcor
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcoreapp3.1\IndianWebTradeWeb.TagHelpers.input.cache
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcoreapp3.1\IndianWebTradeWeb.TagHelpers.output.cache
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcoreapp3.1\IndianWebTradeWeb.RazorCoreGenerate.cache
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcoreapp3.1\Razor\Views\Account\SellerRegistration.cshtml.g.cs
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcoreapp3.1\Razor\Views\Account\UserRegistration.cshtml.g.cs
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcoreapp3.1\Razor\Views\Home\GetUserCart.cshtml.g.cs
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcoreapp3.1\Razor\Views\Home\_CartView.cshtml.g.cs
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcoreapp3.1\Razor\Views\Home\_ProductItem.cshtml.g.cs
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcoreapp3.1\Razor\Views\Seller\AddProductItem.cshtml.g.cs
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_cartIcon.cshtml.g.cs
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
@@ -289,12 +301,3 @@ C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcor
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcoreapp3.1\IndianWebTradeWeb.dll
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcoreapp3.1\IndianWebTradeWeb.pdb
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcoreapp3.1\IndianWebTradeWeb.genruntimeconfig.cache
-C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
-C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll
-C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
-C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
-C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcoreapp3.1\Razor\Views\Account\SellerRegistration.cshtml.g.cs
-C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcoreapp3.1\Razor\Views\Seller\AddProductItem.cshtml.g.cs
-C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
-C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcoreapp3.1\Razor\Views\Home\GetUserCart.cshtml.g.cs

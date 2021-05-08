@@ -98,150 +98,62 @@
                     <li class="col-sm-1"> </li>
                 </ul>
             </div>
+            <div id="cartDetailforloop">
+                <!-- Cart Details -->
+                @foreach (var item in Model)
+                {<ul class="row cart-details">
+                        <li class="col-sm-6">
+                            <div class="media">
+                                <!-- Media Image -->
+                                <div class="media-left media-middle"> <a href="#." class="item-img"> <img class="media-object" src="/ItemImages/@item.ImageUrl" alt=""> </a> </div>
 
-            <!-- Cart Details -->
-            @foreach (var item in Model)
-            {<ul class="row cart-details">
-                    <li class="col-sm-6">
-                        <div class="media">
-                            <!-- Media Image -->
-                            <div class="media-left media-middle"> <a href="#." class="item-img"> <img class="media-object" src="/ItemImages/@item.ImageUrl" alt=""> </a> </div>
-
-                            <!-- Item Name -->
-                            <div class="media-body">
-                                <div class="position-center-center">
-                                    <h5>@item.ItemName</h5>
-                                    <p>@item.Discription</p>
+                                <!-- Item Name -->
+                                <div class="media-body">
+                                    <div class="position-center-center">
+                                        <h5>@item.ItemName</h5>
+                                        <p>@item.Discription</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </li>
+                        </li>
 
-                    <!-- PRICE -->
-                    <li class="col-sm-2">
-                        <div class="position-center-center"> <span class="price"><small>$</small>@item.PricePerItem</span> </div>
-                    </li>
+                        <!-- PRICE -->
+                        <li class="col-sm-2">
+                            <div class="position-center-center"> <span class="price"><small>$</small>@item.PricePerItem</span> </div>
+                        </li>
 
-                    <!-- QTY -->
-                    <li class="col-sm-1">
-                        <div class="position-center-center">
-                            <div class="quinty">
-                                <!-- QTY -->
-                                <input type="text" value="@item.Quantity" id="@item.CartId" onchange="editCard(@item.CartId)" />
-                                @*<select class="selectpicker">
-                                        <option>@item.Quantity</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                    </select>*@
-                            </div>
-                        </div>
-                    </li>
-
-                    <!-- TOTAL PRICE -->
-                    <li class="col-sm-2">
-                        <div class="position-center-center"> <span class="price"><small>$</small>@item.TotalPrice</span> </div>
-                    </li>
-
-                    <!-- REMOVE -->
-                    <li class="col-sm-1">
-                        <div class="position-center-center"> <a href="#."><i class="icon-close" onclick="RemoveFromCart(@item.CartId)"></i></a> </div>
-                    </li>
-                </ul>
-            }
-            <!-- Cart Details -->
-            <ul class="row cart-details">
-                <li class="col-sm-6">
-                    <div class="media">
-                        <!-- Media Image -->
-                        <div class="media-left media-middle"> <a href="#." class="item-img"> <img class="media-object" src="images/cart-img-2.jpg" alt=""> </a> </div>
-
-                        <!-- Item Name -->
-                        <div class="media-body">
+                        <!-- QTY -->
+                        <li class="col-sm-1">
                             <div class="position-center-center">
-                                <h5>STOOL</h5>
-                                <p>Lorem ipsum dolor sit amet</p>
+                                <div class="quinty">
+                                    <!-- QTY -->
+                                    <input type="text" value="@item.Quantity" id="@item.CartId" onchange="editCard(@item.CartId)" />
+                                    @*<select class="selectpicker">
+                                            <option>@item.Quantity</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                        </select>*@
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </li>
+                        </li>
 
-                <!-- PRICE -->
-                <li class="col-sm-2">
-                    <div class="position-center-center"> <span class="price"><small>$</small>299</span> </div>
-                </li>
+                        <!-- TOTAL PRICE -->
+                        <li class="col-sm-2">
+                            <div class="position-center-center"> <span class="price"><small>$</small>@item.TotalPrice</span> </div>
+                        </li>
 
-                <!-- QTY -->
-                <li class="col-sm-1">
-                    <div class="position-center-center">
-                        <div class="quinty">
-                            <!-- QTY -->
-                            <select class="selectpicker">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                            </select>
-                        </div>
-                    </div>
-                </li>
+                        <!-- REMOVE -->
+                        <li class="col-sm-1">
+                            <div class="position-center-center"> <a href="#."><i class="icon-close" onclick="RemoveFromCart(@item.CartId)"></i></a> </div>
+                        </li>
+                    </ul>
+                }
+                <!-- Cart Details -->
+            </div>
+            <div id="cartDetailforajax">
 
-                <!-- TOTAL PRICE -->
-                <li class="col-sm-2">
-                    <div class="position-center-center"> <span class="price"><small>$</small>299</span> </div>
-                </li>
-
-                <!-- REMOVE -->
-                <li class="col-sm-1">
-                    <div class="position-center-center"> <a href="#."><i class="icon-close"></i></a> </div>
-                </li>
-            </ul>
-
-            <!-- Cart Details -->
-            <ul class="row cart-details">
-                <li class="col-sm-6">
-                    <div class="media">
-                        <!-- Media Image -->
-                        <div class="media-left media-middle"> <a href="#." class="item-img"> <img class="media-object" src="images/cart-img-3.jpg" alt=""> </a> </div>
-
-                        <!-- Item Name -->
-                        <div class="media-body">
-                            <div class="position-center-center">
-                                <h5>wood SPOON</h5>
-                                <p>Lorem ipsum dolor sit amet</p>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-
-                <!-- PRICE -->
-                <li class="col-sm-2">
-                    <div class="position-center-center"> <span class="price"><small>$</small>299</span> </div>
-                </li>
-
-                <!-- QTY -->
-                <li class="col-sm-1">
-                    <div class="position-center-center">
-                        <div class="quinty">
-                            <!-- QTY -->
-                            <select class="selectpicker">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                            </select>
-                        </div>
-                    </div>
-                </li>
-
-                <!-- TOTAL PRICE -->
-                <li class="col-sm-2">
-                    <div class="position-center-center"> <span class="price"><small>$</small>299</span> </div>
-                </li>
-
-                <!-- REMOVE -->
-                <li class="col-sm-1">
-                    <div class="position-center-center"> <a href="#."><i class="icon-close"></i></a> </div>
-                </li>
-            </ul>
+            </div>
         </div>
     </div>
 </section>
@@ -269,6 +181,7 @@
                     <h6>grand total</h6>
                     <div class="grand-total">
                         <div class="order-detail" id="orderdinal">
+
                             @*<p>WOOD CHAIR <span>$598 </span></p>
                                 <p>STOOL <span>$199 </span></p>
                                 <p>WOOD SPOON <span> $139</span></p>*@
@@ -284,17 +197,29 @@
 </section>
 <script>
     function RemoveFromCart(id) {
-        $.ajax({
-            method: "POST",
-            data: { "cartId": id },
-        url: "@Url.Action("RemoveTocart", "Home")",
-            success: function (data) {
-                alert(data);
-        },
-        error: function (data) {
-            alert('error' + data.status);
+        var r = confirm("Do you want to remove!");
+        if (r == true) {
+            $.ajax({
+                method: "POST",
+                data: { "cartId": id },
+                url: "@Url.Action("RemoveTocart", "Home")",
+                success: function (data) {
+                    if (data.succsefully) {
+                        $("#cartDetailforloop").remove();
+                        GetUserCartForAjaxDiv();
+                        GetUserCartForAjax();
+                    } else {
+                        console.log(data);
+                        alert('' + data.message)
+                    }
+                },
+                error: function (data) {
+                    alert('error' + data.status);
+                }
+            });
+        } else {
+
         }
-    });
     }
     function editCard(id) {
         var x = document.getElementById(id).value;
@@ -304,8 +229,15 @@
             data: { "cartId": id, "quantity": x},
         url: "@Url.Action("EditCart", "Home")",
             success: function (data) {
-                console.log(data);
-                alert(''+data.message)
+                if (data.succsefully) {
+                    $("#cartDetailforloop").remove();
+                    GetUserCartForAjaxDiv();
+                    GetUserCartForAjax();
+                } else {
+                    console.log(data);
+                    alert('' + data.message)
+                }
+
         },
         error: function (data) {
             alert('error' + data.status);
@@ -321,7 +253,7 @@
         var totalPrice = "";
         $.ajax({
             method: "GET",
-           // data: {},
+           data: {},
         url: "@Url.Action("GetUserCartForAjax", "Home")",
             success: function (data) {
                 console.log(data);
@@ -331,8 +263,23 @@
                 });
                 console.log(htmlelemnt);
                 htmlelemnt += "<p class=all-total>TOTAL COST <span>$" + totalPrice + "</span></p>";
+                $("#orderdinal").empty();
                 $('#orderdinal').append(htmlelemnt);
 
+        },
+        error: function (data) {
+            alert('error' + data.status);
+        }
+    });
+    }
+
+    function GetUserCartForAjaxDiv() {
+        $.ajax({
+            method: "GET",
+            data: { isAjax: true },
+        url: "@Url.Action("GetUserCart", "Home")",
+            success: function (data) {
+                $("#cartDetailforajax").html(data);
         },
         error: function (data) {
             alert('error' + data.status);

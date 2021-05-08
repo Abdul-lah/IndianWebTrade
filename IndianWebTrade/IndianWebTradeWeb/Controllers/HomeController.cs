@@ -18,23 +18,30 @@ namespace IndianWebTradeWeb.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IItem _IItem;
-
-        public HomeController(ILogger<HomeController> logger, IItem item)
+        private readonly IMasterService _MasterService;
+        public HomeController(ILogger<HomeController> logger, IItem item, IMasterService masterService)
         {
             _logger = logger;
             _IItem = item;
+            _MasterService = masterService;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(SortModel model)
         {
+            ViewBag.categories = _MasterService.GetCategories().Select(s => new CategoryDto
+            {
+                Id = s.Id,
+                CatogeryName = s.CatogeryName
+            });
+
             IGernalResult result = new GernalResult();
             //result = _IItem.getAllItem();
             List<ItemDto> items = _IItem.getAllItem();
+            List<ItemModel> modelListFilter = new List<ItemModel>();
             List<ItemModel> modelList = new List<ItemModel>();
-
             foreach (var item in items)
             {
-                ItemModel model = new ItemModel
+                ItemModel viewmodel = new ItemModel
                 {
                     Discription = item.Discription,
                     Id = item.Id,
@@ -43,22 +50,40 @@ namespace IndianWebTradeWeb.Controllers
                     Image = item.Image,
                     Name = item.Name,
                     SellerId = item.SellerId,
+                    CategoryId = item.CatogeryId,
                 };
-                modelList.Add(model);
+                modelList.Add(viewmodel);
+            }
+            if (model.PriceFilter == "desc")
+            {
+                modelListFilter = modelList.OrderByDescending(x => Convert.ToInt32(x.Price)).ToList();
+            }
+            if (model.PriceFilter == "asec")
+            {
+                modelListFilter = modelList.OrderBy(x => Convert.ToInt32(x.Price)).ToList();
 
             }
-
-
+            if (model.CategoryId > 0)
+            {
+                modelListFilter = modelList.Where(x => x.CategoryId == model.CategoryId).ToList();
+            }
+            if (model.PriceFilter != null || model.CategoryId > 0)
+            {
+                return PartialView("_ProductItem", modelListFilter);
+            }
             return View(modelList);
         }
 
-        public string AddTocart(CartViewModel model)
+        [Authorize(Roles = "Custumer")]
+        public JsonResult AddTocart(CartViewModel model)
         {
             var userId = Convert.ToInt32(HttpContext.Request.Cookies["user_id"]);
-
+            if (userId == 0)
+            {
+                return null;
+            }
             try
             {
-
                 if (ModelState.IsValid)
                 {
                     List<ItemDto> items = _IItem.getAllItem();
@@ -70,41 +95,85 @@ namespace IndianWebTradeWeb.Controllers
                         UserId = userId,
                         PricePerItem = Convert.ToInt32(item.Price)
                     });
-                    return result.Id.ToString();
+                    return Json(result.Id);
                 }
-                return "Model not valid";
+
             }
             catch
             {
                 throw;
             }
-
+            return null;
         }
-        public string RemoveTocart(int cartId)
+        [Authorize(Roles = "Custumer")]
+        public JsonResult RemoveTocart(int cartId)
         {
+            IGernalResult result = new GernalResult();
             try
             {
                 if (cartId > 0)
                 {
                     var userId = HttpContext.Request.Cookies["user_id"];
-
                     var data = _IItem.RemoveFromCart(cartId, Convert.ToInt32(userId));
-
-                    return data ? "Item removed from cart" : "item does not remove from cart";
+                    result.Message = data ? "Item removed from cart" : "item does not remove from cart";
+                    result.Succsefully = data ? true : false;
                 }
                 else
                 {
-                    return "please send valid cart id ";
-
+                    result.Message = "please send valid cart id ";
+                    result.Succsefully = false;
                 }
             }
             catch
             {
-                return "server error";
+                result.Succsefully = false;
+                result.Message = "Server error.";
+            }
+            return Json(result);
+        }
+        [Authorize(Roles = "Custumer")]
+        public IActionResult GetUserCart(bool isAjax, bool isLayout)
+        {
+            var data = HttpContext.User.Claims.ToList();
+            var data1 = HttpContext.User.Claims.ToList();
+            var data3 = HttpContext.User.Identities.ToList();
+            int totalPriceOfALl = 0;
+            var userId = Convert.ToInt32(HttpContext.Request.Cookies["user_id"]);
+            List<CartViewModel> viewmodel = new List<CartViewModel>();
+            List<CartDto> result = _IItem.GetUsercartById(userId);
+            foreach (var item in result)
+            {
+                totalPriceOfALl = totalPriceOfALl + Convert.ToInt32(item.TotalPrice);
+            }
+            viewmodel = result.Select(s => new CartViewModel
+            {
+
+                ItemId = s.ItemId,
+                ItemName = s.ItemName,
+                PricePerItem = s.PricePerItem,
+                TotalPrice = Convert.ToInt32(s.TotalPrice),
+                ImageUrl = s.ImageUrl,
+                Discription = s.Discription,
+                Quantity = s.Quantity,
+                CartId = s.Id,
+                IsAvilable = _IItem.IsAvilableItem(s.Id, s.Quantity, 0),
+                totalPriceOfALl = totalPriceOfALl
+            }).ToList();
+            if (!isAjax)
+            {
+                return View(viewmodel);
+            }
+            if (isLayout)
+            {
+                return PartialView("_cartIcon", viewmodel);
+            }
+            else
+            {
+                return PartialView("_CartView", viewmodel);
             }
         }
-
-        public IActionResult GetUserCart()
+        [Authorize(Roles = "Custumer")]
+        public IActionResult _GetUserCart(bool isAjax, bool isLayout)
         {
             int totalPriceOfALl = 0;
             var userId = Convert.ToInt32(HttpContext.Request.Cookies["user_id"]);
@@ -120,7 +189,7 @@ namespace IndianWebTradeWeb.Controllers
                 ItemId = s.ItemId,
                 ItemName = s.ItemName,
                 PricePerItem = s.PricePerItem,
-                TotalPrice = s.PricePerItem,
+                TotalPrice = Convert.ToInt32(s.TotalPrice),
                 ImageUrl = s.ImageUrl,
                 Discription = s.Discription,
                 Quantity = s.Quantity,
@@ -128,11 +197,14 @@ namespace IndianWebTradeWeb.Controllers
                 IsAvilable = _IItem.IsAvilableItem(s.Id, s.Quantity, 0),
                 totalPriceOfALl = totalPriceOfALl
             }).ToList();
-
-            return View(viewmodel);
+            if (isLayout)
+            {
+                return PartialView("_cartIcon", viewmodel);
+            }
+            return PartialView("_CartView", viewmodel);
         }
 
-        // [Authorize(Roles = "Custumer")]
+        [Authorize(Roles = "Custumer")]
         public JsonResult GetUserCartForAjax()
         {
             int totalPriceOfALl = 0;
@@ -159,6 +231,7 @@ namespace IndianWebTradeWeb.Controllers
             }).ToList();
             return Json(viewmodel);
         }
+        [Authorize(Roles = "Custumer")]
         public JsonResult EditCart(int cartId, int quantity)
         {
             IGernalResult result = new GernalResult();
@@ -166,6 +239,28 @@ namespace IndianWebTradeWeb.Controllers
             return Json(result);
         }
 
+        public JsonResult GetUserRole()
+        {
+            int i = 1;
+            string role = "gest";
+            var result = "a";
+            var data = HttpContext.User.Identity.Name;
+            var data4 = HttpContext.User.Claims.ToList();
+            var data1 = HttpContext.User.Claims.ToList();
+            foreach (var item in data4)
+            {
+                i++;
+                if (i == 3)
+                {
+                    role = item.Value;
+                }
+
+                result = result + " " + item.Value;
+            }
+            // resut = data4[0];
+            //var data3 = HttpContext.User.Identities.ToList();
+            return Json(role);
+        }
 
         public IActionResult Privacy()
         {

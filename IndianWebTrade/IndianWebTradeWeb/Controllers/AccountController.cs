@@ -25,6 +25,11 @@ namespace IndianWebTradeWeb.Controllers
             _iAccount = iAccount;
             webHostEnvironment = hostEnvironment;
         }
+
+        public IActionResult AccessDenied(string ReturnUrl)
+        {
+            return RedirectToAction("Login");
+        }
         public IActionResult Index()
         {
             return View();
@@ -62,6 +67,7 @@ namespace IndianWebTradeWeb.Controllers
 
         public IActionResult SellerRegistration()
         {
+
             return View();
         }
         [HttpPost]
@@ -140,12 +146,19 @@ namespace IndianWebTradeWeb.Controllers
                  };
                         HttpContext.Response.Cookies.Append("user_id", Convert.ToString(data.Id));
                         HttpContext.Response.Cookies.Append("Email", data.Email);
+                        HttpContext.Response.Cookies.Append("Role", data.Role);
                         var userIdentity = new ClaimsIdentity(userClaims, "User Identity");
 
                         var userPrincipal = new ClaimsPrincipal(new[] { userIdentity });
                         HttpContext.SignInAsync(userPrincipal);
-
-                        return RedirectToAction("Index", "Home");
+                        if (data.Role == "Custumer")
+                        {
+                            return RedirectToAction("Index", "Home");
+                        }
+                        if (data.Role == "Seller")
+                        {
+                            return RedirectToAction("Index", "Seller");
+                        }
                     }
                     else
                     {
@@ -162,7 +175,12 @@ namespace IndianWebTradeWeb.Controllers
             return View();
 
         }
+        public async Task<IActionResult> Logout()
+        {
 
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
 
         public IActionResult ChangePassword()
         {

@@ -30,6 +30,12 @@ namespace IndianWebTradeWeb.Models
         public string Price { get; set; }
         public string Discription { get; set; }
         public string Image { get; set; }
+        public int CategoryId { get; set; }
     }
-    
+    public class SortModel
+    {
+        public int CategoryId { get; set; }
+        public string PriceFilter { get; set; }
+    }
+
 }

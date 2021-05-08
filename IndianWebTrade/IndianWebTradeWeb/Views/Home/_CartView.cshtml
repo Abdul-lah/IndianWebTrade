@@ -1,0 +1,51 @@
+﻿@model IEnumerable<INFASTRUCTURE.Model.CartViewModel>
+
+@foreach (var item in Model)
+{<ul class="row cart-details">
+        <li class="col-sm-6">
+            <div class="media">
+                <!-- Media Image -->
+                <div class="media-left media-middle"> <a href="#." class="item-img"> <img class="media-object" src="/ItemImages/@item.ImageUrl" alt=""> </a> </div>
+
+                <!-- Item Name -->
+                <div class="media-body">
+                    <div class="position-center-center">
+                        <h5>@item.ItemName</h5>
+                        <p>@item.Discription</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        <!-- PRICE -->
+        <li class="col-sm-2">
+            <div class="position-center-center"> <span class="price"><small>$</small>@item.PricePerItem</span> </div>
+        </li>
+
+        <!-- QTY -->
+        <li class="col-sm-1">
+            <div class="position-center-center">
+                <div class="quinty">
+                    <!-- QTY -->
+                    <input type="text" value="@item.Quantity" id="@item.CartId" onchange="editCard(@item.CartId)" />
+                    @*<select class="selectpicker">
+                            <option>@item.Quantity</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                        </select>*@
+                </div>
+            </div>
+        </li>
+
+        <!-- TOTAL PRICE -->
+        <li class="col-sm-2">
+            <div class="position-center-center"> <span class="price"><small>$</small>@item.TotalPrice</span> </div>
+        </li>
+
+        <!-- REMOVE -->
+        <li class="col-sm-1">
+            <div class="position-center-center"> <a href="#."><i class="icon-close" onclick="RemoveFromCart(@item.CartId)"></i></a> </div>
+        </li>
+    </ul>
+}

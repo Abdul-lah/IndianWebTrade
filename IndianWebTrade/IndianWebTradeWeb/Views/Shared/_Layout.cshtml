@@ -81,7 +81,6 @@
             <div class="ldr"></div>
         </div>
     </div>
-
     <!-- Wrap -->
     <div id="wrap">
 
@@ -261,36 +260,38 @@
 
                                 <!-- USER BASKET -->
                                 <li class="dropdown user-basket">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><i class="icon-basket-loaded"></i> </a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <div class="media-left">
-                                                <div class="cart-img"> <a href="#"> <img class="media-object img-responsive" src="images/cart-img-1.jpg" alt="..."> </a> </div>
-                                            </div>
-                                            <div class="media-body">
-                                                <h6 class="media-heading">WOOD CHAIR</h6>
-                                                <span class="price">129.00 USD</span> <span class="qty">QTY: 01</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="media-left">
-                                                <div class="cart-img"> <a href="#"> <img class="media-object img-responsive" src="images/cart-img-2.jpg" alt="..."> </a> </div>
-                                            </div>
-                                            <div class="media-body">
-                                                <h6 class="media-heading">WOOD STOOL</h6>
-                                                <span class="price">129.00 USD</span> <span class="qty">QTY: 01</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <h5 class="text-center">SUBTOTAL: 258.00 USD</h5>
-                                        </li>
-                                        <li class="margin-0">
-                                            <div class="row">
-                                                <div class="col-xs-6"> <a href="shopping-cart.html" class="btn">VIEW CART</a></div>
-                                                <div class="col-xs-6 "> <a href="checkout.html" class="btn">CHECK OUT</a></div>
-                                            </div>
-                                        </li>
+                                    <a id="cartIcon" href="GetUserCart" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><i class="icon-basket-loaded"></i> </a>
+
+                                    <ul class="dropdown-menu" id="carticonui" >
+                                        @*<li>
+                                                <div class="media-left">
+                                                    <div class="cart-img"> <a href="#"> <img class="media-object img-responsive" src="images/cart-img-1.jpg" alt="..."> </a> </div>
+                                                </div>
+                                                <div class="media-body">
+                                                    <h6 class="media-heading">WOOD CHAIR</h6>
+                                                    <span class="price">129.00 USD</span> <span class="qty">QTY: 01</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="media-left">
+                                                    <div class="cart-img"> <a href="#"> <img class="media-object img-responsive" src="images/cart-img-2.jpg" alt="..."> </a> </div>
+                                                </div>
+                                                <div class="media-body">
+                                                    <h6 class="media-heading">WOOD STOOL</h6>
+                                                    <span class="price">129.00 USD</span> <span class="qty">QTY: 01</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <h5 class="text-center">SUBTOTAL: 258.00 USD</h5>
+                                            </li>*@
+                                        @*<li class="margin-0">
+                                                <div class="row">
+                                                    <div class="col-xs-6"> <a href="GetUserCart" class="btn">VIEW CART</a></div>
+                                                   <div class="col-xs-6 "> <a href="checkout.html" class="btn">CHECK OUT</a></div>
+                                                </div>
+                                            </li>*@
                                     </ul>
+
                                 </li>
 
                                 <!-- SEARCH BAR -->
@@ -318,7 +319,7 @@
         @*<div class="container">*@
         <div>
             @*<main role="main" class="pb-3">*@
-                @RenderBody()
+            @RenderBody()
             @*</main>*@
         </div>
         <section class="small-about padding-top-150 padding-bottom-150">
@@ -419,23 +420,64 @@
                 </div>
             </div>
         </footer>
-        </div>
-        <script src="~/js/jquery-1.11.3.min.js"></script>
-        <script src="~/js/bootstrap.min.js"></script>
-        <script src="~/js/own-menu.js"></script>
-        <script src="~/js/jquery.lighter.js"></script>
-        <script src="~/js/owl.carousel.min.js"></script>
+    </div>
+    <script>
+        function layoutForUiCartIcon() {
+           
+           $.ajax({
+            method: "GET",
+               data: { isAjax: true, isLayout:true },
+        url: "@Url.Action("_GetUserCart", "Home")",
+            success: function (data) {
+                $("#carticonui").html(data);
 
-        <!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
-        @*<script type="text/javascript" src="rs-plugin/js/jquery.tp.t.min.js"></script>
+
+        },
+        error: function (data) {
+
+        }
+    });
+        }
+        $(document).ready(function () {
+
+           // GetUserRole();
+        });
+
+        function GetUserRole() {
+            debugger
+           $.ajax({
+            method: "GET",
+               /*data: { isAjax: true, isLayout:true },*/
+        url: "@Url.Action("GetUserRole", "Home")",
+               success: function (data) {
+                   console.log(data);
+                   if (data == "gest") {
+                       location.replace("Account/Login");
+                   }
+
+        },
+        error: function (data) {
+
+        }
+    });
+    }
+    </script>
+    <script src="~/js/jquery-1.11.3.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/own-menu.js"></script>
+    <script src="~/js/jquery.lighter.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+
+    <!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
+    @*<script type="text/javascript" src="rs-plugin/js/jquery.tp.t.min.js"></script>
         <script type="text/javascript" src="rs-plugin/js/jquery.tp.min.js"></script>*@
-        <script src="~/js/main.js"></script>
-        <script src="~/js/main.js"></script>
+    <script src="~/js/main.js"></script>
+    <script src="~/js/main.js"></script>
 
 
-        <script src="~/lib/jquery/dist/jquery.min.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-        @RenderSection("Scripts", required: false)
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

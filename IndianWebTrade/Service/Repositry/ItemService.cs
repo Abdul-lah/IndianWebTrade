@@ -20,24 +20,33 @@ namespace Service.Repositry
         public IGernalResult AddItem(ItemDto s)
         {
             IGernalResult result = new GernalResult();
-            TblItem item = new TblItem
+            try
             {
-                Name = s.Name,
-                CategoryId = s.CatogeryId,
-                Discription = s.Discription,
-                ImageUrl = s.Image,
-                Price = s.Price,
-                Quantity = s.Quantity,
-                SellerId = Convert.ToInt32(s.SellerId),
-                CreatedDate = DateTime.UtcNow,
-                IsAvailable = true,
-                IsDelete = false
-            };
+                TblItem item = new TblItem
+                {
+                    Name = s.Name,
+                    CategoryId = s.CatogeryId,
+                    Discription = s.Discription,
+                    ImageUrl = s.Image,
+                    Price = s.Price,
+                    Quantity = s.Quantity,
+                    SellerId = Convert.ToInt32(s.SellerId),
+                    CreatedDate = DateTime.UtcNow,
+                    IsAvailable = true,
+                    IsDelete = false
+                };
 
-            _dbContext.Add(item);
-            int save = _dbContext.SaveChanges();
-            result.Succsefully = save > 0 ? true : false;
-            result.Message = save > 0 ? "Selling Item add Succsefully" : "Selling Item not register";
+                _dbContext.Add(item);
+                int save = _dbContext.SaveChanges();
+                result.Succsefully = save > 0 ? true : false;
+                result.Message = save > 0 ? "Selling Item add Succsefully" : "Selling Item not register";
+
+            }
+            catch(Exception ex)
+            {
+                result.Succsefully = false;
+                result.Message = "Server error";
+            }
             return result;
         }
 
@@ -106,7 +115,7 @@ namespace Service.Repositry
                 result.value = items;
                 result.Message = Convert.ToString(items.Count);
             }
-            catch (Exception ex)
+            catch
             {
                 result.Succsefully = false;
                 result.Message = "Server error";
@@ -163,7 +172,7 @@ namespace Service.Repositry
                 int save = _dbContext.SaveChanges();
                 dto.Id = cart.Id;
             }
-            catch (Exception ex)
+            catch
             {
                 throw;
             }
@@ -288,8 +297,11 @@ namespace Service.Repositry
                 }
                 else
                 {
+                    int total = Convert.ToInt32(cart.PricePerItem) * Countity;
 
-                    cart.TotalPrice = Convert.ToString(Convert.ToInt32(cart.PricePerItem) * Countity);
+
+
+                    cart.TotalPrice = Convert.ToString(total);
                     cart.Quantity = Countity;
                     int save = _dbContext.SaveChanges();
                     result.Succsefully = save > 0 ? true : false;
