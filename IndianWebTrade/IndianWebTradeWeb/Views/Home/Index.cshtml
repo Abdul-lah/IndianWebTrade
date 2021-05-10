@@ -4,80 +4,6 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@*<table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Id)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ItemId)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Name)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.SellerId)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.SellerName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Quantity)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Price)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Discription)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Image)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Id)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ItemId)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.SellerId)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.SellerName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Quantity)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Price)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Discription)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Image)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>*@
-
 <section class="shop-page padding-top-100 padding-bottom-100">
     <div class="container">
         <div class="item-display">
@@ -411,6 +337,8 @@
 
         var e = document.getElementById("categoryId");
         var x = document.getElementById("PriceId");
+        console.log("categoryId" + e.value);
+        console.log("Price" + x.value);
         var category = e.value;
         var price = x.value;
         $.ajax({
@@ -418,7 +346,9 @@
             data: { "categoryId": category, "PriceFilter": price },
         url: "@Url.Action("Index", "Home")",
             success: function (data) {
-                console.log(data);
+                $("#productItem").html("");
+
+               
                 $("#productItem").html(data);
         },
         error: function (data) {

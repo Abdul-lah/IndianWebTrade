@@ -42,7 +42,7 @@ namespace Service.Repositry
                 result.Message = save > 0 ? "Selling Item add Succsefully" : "Selling Item not register";
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 result.Succsefully = false;
                 result.Message = "Server error";

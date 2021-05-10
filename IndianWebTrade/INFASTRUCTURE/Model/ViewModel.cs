@@ -94,5 +94,13 @@ namespace INFASTRUCTURE.Model
         [Compare("NewPassword", ErrorMessage = "New Password and confirm password does not match")]
         public string ConfirmPassword { get; set; }
     }
+    public class OrderModel
+    {
+        public string MobileNo { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
 
+        public List<CartViewModel> Cart { get; set; }
+        public bool CashOndelivery { get; set; }
+    }
 }

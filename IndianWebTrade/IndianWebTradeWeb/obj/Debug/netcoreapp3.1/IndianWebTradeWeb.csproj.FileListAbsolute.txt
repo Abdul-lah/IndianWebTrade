@@ -301,3 +301,4 @@ C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcor
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcoreapp3.1\IndianWebTradeWeb.dll
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcoreapp3.1\IndianWebTradeWeb.pdb
 C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcoreapp3.1\IndianWebTradeWeb.genruntimeconfig.cache
+C:\Users\Abdullah\Desktop\gzit\IndianWebTrade\IndianWebTradeWeb\obj\Debug\netcoreapp3.1\Razor\Views\Home\AddOrder.cshtml.g.cs

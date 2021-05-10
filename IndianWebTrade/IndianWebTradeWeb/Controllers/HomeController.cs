@@ -51,21 +51,36 @@ namespace IndianWebTradeWeb.Controllers
                     Name = item.Name,
                     SellerId = item.SellerId,
                     CategoryId = item.CatogeryId,
+
                 };
                 modelList.Add(viewmodel);
-            }
-            if (model.PriceFilter == "desc")
-            {
-                modelListFilter = modelList.OrderByDescending(x => Convert.ToInt32(x.Price)).ToList();
-            }
-            if (model.PriceFilter == "asec")
-            {
-                modelListFilter = modelList.OrderBy(x => Convert.ToInt32(x.Price)).ToList();
-
             }
             if (model.CategoryId > 0)
             {
                 modelListFilter = modelList.Where(x => x.CategoryId == model.CategoryId).ToList();
+            }
+            if (model.PriceFilter == "desc")
+            {
+                if (model.CategoryId > 0)
+                {
+                    modelListFilter = modelListFilter.OrderByDescending(x => Convert.ToInt32(x.Price)).ToList();
+                }
+                else
+                {
+                    modelListFilter = modelList.OrderByDescending(x => Convert.ToInt32(x.Price)).ToList();
+                }
+
+            }
+            if (model.PriceFilter == "asec")
+            {
+                if (model.CategoryId > 0)
+                {
+                    modelListFilter = modelListFilter.OrderBy(x => Convert.ToInt32(x.Price)).ToList();
+                }
+                else
+                {
+                    modelListFilter = modelList.OrderBy(x => Convert.ToInt32(x.Price)).ToList();
+                }
             }
             if (model.PriceFilter != null || model.CategoryId > 0)
             {
@@ -134,9 +149,6 @@ namespace IndianWebTradeWeb.Controllers
         [Authorize(Roles = "Custumer")]
         public IActionResult GetUserCart(bool isAjax, bool isLayout)
         {
-            var data = HttpContext.User.Claims.ToList();
-            var data1 = HttpContext.User.Claims.ToList();
-            var data3 = HttpContext.User.Identities.ToList();
             int totalPriceOfALl = 0;
             var userId = Convert.ToInt32(HttpContext.Request.Cookies["user_id"]);
             List<CartViewModel> viewmodel = new List<CartViewModel>();
@@ -262,17 +274,40 @@ namespace IndianWebTradeWeb.Controllers
             return Json(role);
         }
 
-        public IActionResult Privacy()
+        public IActionResult AddOrder()
+        {
+            var userId = Convert.ToInt32(HttpContext.Request.Cookies["user_id"]);
+            int totalPriceOfALl = 0;
+
+            List<CartViewModel> viewmodel = new List<CartViewModel>();
+            List<CartDto> result = _IItem.GetUsercartById(userId);
+            foreach (var item in result)
+            {
+                totalPriceOfALl = totalPriceOfALl + Convert.ToInt32(item.TotalPrice);
+            }
+            viewmodel = result.Select(s => new CartViewModel
+            {
+
+                ItemId = s.ItemId,
+                ItemName = s.ItemName,
+                PricePerItem = s.PricePerItem,
+                TotalPrice = Convert.ToInt32(s.TotalPrice),
+                ImageUrl = s.ImageUrl,
+                Discription = s.Discription,
+                Quantity = s.Quantity,
+                CartId = s.Id,
+                IsAvilable = _IItem.IsAvilableItem(s.Id, s.Quantity, 0),
+                totalPriceOfALl = totalPriceOfALl
+            }).ToList();
+            OrderModel orderModel = new OrderModel();
+            orderModel.Cart.AddRange(viewmodel);
+            return View(orderModel);
+        }
+        [HttpPost]
+        public IActionResult AddOrder(OrderModel model)
         {
             return View();
         }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-
 
     }
 }

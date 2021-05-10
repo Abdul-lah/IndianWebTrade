@@ -2,9 +2,19 @@
 
 @foreach (var item in Model)
 {
+
+
+
     <li>
         <div class="media-left">
-            <div class="cart-img"> <a href="#"> <img class="media-object img-responsive" src="/ItemImages/@item.ImageUrl" alt="..."> </a> </div>
+            @if (item.IsAvilable)
+            {
+                <div class="cart-img"> <a href="#"> <img class="media-object img-responsive" src="/ItemImages/@item.ImageUrl" alt="..."> </a> </div>
+            }
+            else
+            {
+                <div class="cart-img"> <a href="#"> <img class="media-object img-responsive" src="/ItemImages/@item.ImageUrl" alt="..."> </a> </div>
+            }
         </div>
         <div class="media-body">
             <h6 class="media-heading">@item.ItemName</h6>
@@ -15,7 +25,7 @@
 }
 <li class="margin-0">
     <div class="row">
-        <div class="col-xs-6"> <a href="GetUserCart" class="btn">VIEW CART</a></div>
+        <div class="col-xs-6"> <a href="/Home/GetUserCart" class="btn">VIEW CART</a></div>
         <div class="col-xs-6 "> <a href="checkout.html" class="btn">CHECK OUT</a></div>
     </div>
 </li>
