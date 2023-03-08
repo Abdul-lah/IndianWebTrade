@@ -28,11 +28,14 @@ namespace IndianWebTradeWeb.Controllers
 
         public IActionResult Index(SortModel model)
         {
-            ViewBag.categories = _MasterService.GetCategories().Select(s => new CategoryDto
+            var categories = _MasterService.GetCategories().Select(s => new CategoryDto
             {
                 Id = s.Id,
                 CatogeryName = s.CatogeryName
-            });
+            }).ToList();
+            categories.Add(new CategoryDto { Id = 0, CatogeryName = "All" });
+            ViewBag.categories= categories.OrderBy(s=>s.Id).ToList();
+
 
             IGernalResult result = new GernalResult();
             //result = _IItem.getAllItem();

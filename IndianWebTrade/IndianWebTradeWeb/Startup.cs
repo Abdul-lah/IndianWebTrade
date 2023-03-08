@@ -31,7 +31,7 @@ namespace IndianWebTradeWeb
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext<IndianWebTradeDataBaseContext>(option => option.UseSqlServer("server=DESKTOP-T5N0PPO;Database=IndianWebTradeDataBase;Trusted_Connection=True;"));
+            services.AddDbContext<IndianWebTradeDataBaseContext>(option => option.UseSqlServer("server=(localdb)\\Local;Database=IndianWebTradeDataBase;Trusted_Connection=True;"));
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
             services.ConfigureApplicationCookie(option =>

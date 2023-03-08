@@ -8687,11 +8687,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\IndianWebTrade\\IndianWebTrade\\IndianWebTradeWeb\\IndianWebTradeWeb.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Source\\Repos\\IndianWebTrade\\IndianWebTrade\\IndianWebTradeWeb\\IndianWebTradeWeb.csproj",
       "projectName": "IndianWebTradeWeb",
-      "projectPath": "C:\\Users\\Admin\\source\\repos\\IndianWebTrade\\IndianWebTrade\\IndianWebTradeWeb\\IndianWebTradeWeb.csproj",
+      "projectPath": "C:\\Users\\Admin\\Source\\Repos\\IndianWebTrade\\IndianWebTrade\\IndianWebTradeWeb\\IndianWebTradeWeb.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\source\\repos\\IndianWebTrade\\IndianWebTrade\\IndianWebTradeWeb\\obj\\",
+      "outputPath": "C:\\Users\\Admin\\Source\\Repos\\IndianWebTrade\\IndianWebTrade\\IndianWebTradeWeb\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -8708,14 +8708,14 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\Admin\\source\\repos\\IndianWebTrade\\IndianWebTrade\\DAL\\DAL.csproj": {
-              "projectPath": "C:\\Users\\Admin\\source\\repos\\IndianWebTrade\\IndianWebTrade\\DAL\\DAL.csproj"
+            "C:\\Users\\Admin\\Source\\Repos\\IndianWebTrade\\IndianWebTrade\\DAL\\DAL.csproj": {
+              "projectPath": "C:\\Users\\Admin\\Source\\Repos\\IndianWebTrade\\IndianWebTrade\\DAL\\DAL.csproj"
             },
-            "C:\\Users\\Admin\\source\\repos\\IndianWebTrade\\IndianWebTrade\\INFASTRUCTURE\\INFASTRUCTURE.csproj": {
-              "projectPath": "C:\\Users\\Admin\\source\\repos\\IndianWebTrade\\IndianWebTrade\\INFASTRUCTURE\\INFASTRUCTURE.csproj"
+            "C:\\Users\\Admin\\Source\\Repos\\IndianWebTrade\\IndianWebTrade\\INFASTRUCTURE\\INFASTRUCTURE.csproj": {
+              "projectPath": "C:\\Users\\Admin\\Source\\Repos\\IndianWebTrade\\IndianWebTrade\\INFASTRUCTURE\\INFASTRUCTURE.csproj"
             },
-            "C:\\Users\\Admin\\source\\repos\\IndianWebTrade\\IndianWebTrade\\Service\\Service.csproj": {
-              "projectPath": "C:\\Users\\Admin\\source\\repos\\IndianWebTrade\\IndianWebTrade\\Service\\Service.csproj"
+            "C:\\Users\\Admin\\Source\\Repos\\IndianWebTrade\\IndianWebTrade\\Service\\Service.csproj": {
+              "projectPath": "C:\\Users\\Admin\\Source\\Repos\\IndianWebTrade\\IndianWebTrade\\Service\\Service.csproj"
             }
           }
         }

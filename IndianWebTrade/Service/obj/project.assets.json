@@ -5243,11 +5243,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\IndianWebTrade\\IndianWebTrade\\Service\\Service.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Source\\Repos\\IndianWebTrade\\IndianWebTrade\\Service\\Service.csproj",
       "projectName": "Service",
-      "projectPath": "C:\\Users\\Admin\\source\\repos\\IndianWebTrade\\IndianWebTrade\\Service\\Service.csproj",
+      "projectPath": "C:\\Users\\Admin\\Source\\Repos\\IndianWebTrade\\IndianWebTrade\\Service\\Service.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\source\\repos\\IndianWebTrade\\IndianWebTrade\\Service\\obj\\",
+      "outputPath": "C:\\Users\\Admin\\Source\\Repos\\IndianWebTrade\\IndianWebTrade\\Service\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5264,8 +5264,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\Admin\\source\\repos\\IndianWebTrade\\IndianWebTrade\\INFASTRUCTURE\\INFASTRUCTURE.csproj": {
-              "projectPath": "C:\\Users\\Admin\\source\\repos\\IndianWebTrade\\IndianWebTrade\\INFASTRUCTURE\\INFASTRUCTURE.csproj"
+            "C:\\Users\\Admin\\Source\\Repos\\IndianWebTrade\\IndianWebTrade\\INFASTRUCTURE\\INFASTRUCTURE.csproj": {
+              "projectPath": "C:\\Users\\Admin\\Source\\Repos\\IndianWebTrade\\IndianWebTrade\\INFASTRUCTURE\\INFASTRUCTURE.csproj"
             }
           }
         }

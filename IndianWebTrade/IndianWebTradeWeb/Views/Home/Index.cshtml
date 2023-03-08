@@ -16,7 +16,7 @@
 
                         <!-- Short By -->
                         <select class="selectpicker" onchange="ProdyctItemFilteredForAjaxDiv()" id="categoryId" asp-items="@(new SelectList(@ViewBag.categories,"Id","CatogeryName"))" placeholder="Select Category">
-                            <option disabled selected>--- Category ---</option>
+                            <option  selected>--- Category ---</option>
                         </select>
                         @*<select class="selectpicker">
                                 <option>Short By</option>
@@ -61,7 +61,7 @@
                                 <p>@item.Discription</p>
                             </div>
                             <!-- Price -->
-                            <span class="price"><small>$</small>@item.Price</span>
+                            <span class="price"><small>$</small>@item.Price <small>Month</small></span>
                         </div>
                     </div>
                 }

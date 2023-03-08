@@ -16,11 +16,13 @@ namespace Service.Repositry
         }
         public List<CategoryDto> GetCategories()
         {
+
             return _dbContext.MstCatogery.Select(s => new CategoryDto
             {
                 Id = s.Id,
                 CatogeryName = s.CatogeryName
             }).ToList();
         }
+
     }
 }
