@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>E:\publis</_PublishTargetUrl>
+    <History>False|2023-05-21T19:23:26.8289578Z;False|2023-05-22T00:43:29.3575605+05:30;False|2023-05-22T00:36:34.0653410+05:30;False|2023-05-22T00:32:14.4048825+05:30;False|2023-05-22T00:29:06.7857603+05:30;</History>
+    <LastFailureDetails />
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConection">
+      <Value>server=%28localdb%29\Local%3bDatabase=IndianWebTradeDataBase%3bTrusted_Connection=True%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>
